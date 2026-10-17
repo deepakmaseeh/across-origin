@@ -54,9 +54,14 @@
   .type-sample .big { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--indigo); line-height: 1.1; }
   .type-sample .serif { font-family: var(--serif); font-style: italic; font-size: 1.35rem; color: var(--indigo); margin-top: 10px; }
   .type-sample .body { margin-top: 14px; }
-  .logo-img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  .logo-img { max-width: 100%; width: auto; height: auto; display: block; margin: 0 auto; object-fit: contain; }
   .var-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .var { border: 1px solid var(--line); border-radius: 12px; padding: 28px 16px; text-align: center; background: var(--white); min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .var img { width: auto !important; height: auto !important; max-width: 110px; max-height: 110px; object-fit: contain; object-position: center; }
+  .app-ico img, .fav-row img { width: auto !important; height: auto !important; max-width: 48px; max-height: 48px; object-fit: contain; }
+  .fav-row img.s16 { max-width: 16px; max-height: 16px; }
+  .fav-row img.s32 { max-width: 32px; max-height: 32px; }
+  .fav-row img.s48 { max-width: 48px; max-height: 48px; }
   .var.ink { background: var(--indigo); }
   .var.dark { background: #111; }
   .var .cap { font-family: var(--display); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
@@ -158,38 +163,38 @@
     <p style="margin-bottom:18px;">Use the approved colorway for the background. Prefer full color on light; reverse or mono for constrained print.</p>
     <div class="var-grid">
       <div class="var">
-        <img src="/assets/logo-mark.png" width="88" height="88" alt="">
+        <img src="/assets/logo-mark.png" width="96" height="96" alt="Full color mark">
         <div class="cap">Full color</div>
       </div>
       <div class="var ink">
-        <img src="/assets/logo-mark.png" width="88" height="88" alt="" style="filter:brightness(0) invert(1);">
+        <img src="/assets/logo-mark.png" width="96" height="96" alt="" style="filter:brightness(0) invert(1);">
         <div class="cap">On indigo</div>
       </div>
       <div class="var dark">
-        <img src="/assets/logo-mark.png" width="88" height="88" alt="">
+        <img src="/assets/logo-mark.png" width="96" height="96" alt="">
         <div class="cap">On black</div>
       </div>
       <div class="var" style="background:var(--gold);">
-        <img src="/assets/logo-mark.png" width="88" height="88" alt="" style="filter:brightness(0) invert(1);">
+        <img src="/assets/logo-mark.png" width="96" height="96" alt="" style="filter:brightness(0) invert(1);">
         <div class="cap" style="color:rgba(0,0,0,0.55);">On gold</div>
       </div>
     </div>
     <div class="grid3" style="margin-top:16px;">
       <div class="card center">
-        <div style="width:72px;height:72px;border-radius:16px;background:var(--indigo);display:grid;place-items:center;margin:0 auto;">
+        <div class="app-ico" style="width:72px;height:72px;border-radius:16px;background:var(--indigo);display:grid;place-items:center;margin:0 auto;">
           <img src="/assets/logo-mark.png" width="48" height="48" alt="" style="filter:brightness(0) invert(1);">
         </div>
         <p style="margin-top:12px;">App icon · indigo tile</p>
       </div>
       <div class="card center">
-        <div style="width:72px;height:72px;border-radius:16px;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;margin:0 auto;">
+        <div class="app-ico" style="width:72px;height:72px;border-radius:16px;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;margin:0 auto;">
           <img src="/assets/logo-mark.png" width="48" height="48" alt="">
         </div>
         <p style="margin-top:12px;">App icon · light tile</p>
       </div>
       <div class="card center">
-        <div style="display:flex;gap:10px;justify-content:center;align-items:end;">
-          <img src="/assets/logo-mark.png" width="16" height="16" alt=""><img src="/assets/logo-mark.png" width="32" height="32" alt=""><img src="/assets/logo-mark.png" width="48" height="48" alt="">
+        <div class="fav-row" style="display:flex;gap:10px;justify-content:center;align-items:end;">
+          <img class="s16" src="/assets/logo-mark.png" width="16" height="16" alt=""><img class="s32" src="/assets/logo-mark.png" width="32" height="32" alt=""><img class="s48" src="/assets/logo-mark.png" width="48" height="48" alt="">
         </div>
         <p style="margin-top:12px;">Favicon 16 · 32 · 48</p>
       </div>

@@ -14,7 +14,7 @@
   :root {
     --indigo: #14267B;
     --indigo-soft: #2a3d9a;
-    --gold: #F4A22A;
+    --gold: #F4A62A;
     --gold-deep: #d4891a;
     --neutral: #F3F5FA;
     --charcoal: #1F2937;
@@ -128,6 +128,32 @@
   .sw .m { padding: 12px 14px; }
   .sw .nm { font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: var(--indigo); }
   .sw .vl { font-family: var(--font-display); font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
+  .sw .meaning { font-size: 0.78rem; color: var(--charcoal); margin-top: 6px; }
+  .kit-sub { margin-top: var(--sp-5); }
+  .kit-sub .sec-label { margin-bottom: 18px; }
+  .var-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .var-tile { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 24px 12px; text-align: center; min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  .var-tile.ink { background: var(--indigo); }
+  .var-tile.dark { background: #111; }
+  .var-tile .cap { font-family: var(--font-display); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .var-tile.ink .cap, .var-tile.dark .cap { color: rgba(255,255,255,0.7); }
+  .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .type-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+  .type-card .big { font-family: var(--font-display); font-weight: 700; font-size: 2rem; color: var(--indigo); }
+  .type-card .serif { font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; color: var(--indigo); margin-top: 8px; }
+  .el-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .el { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 18px 10px; text-align: center; }
+  .el svg { width: 40px; height: 40px; margin-bottom: 8px; }
+  .el .t { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; color: var(--indigo); }
+  .board-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .board-grid img { width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block; }
+  @media (max-width: 900px) {
+    .var-row, .type-grid, .board-grid { grid-template-columns: 1fr 1fr; }
+    .el-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .var-row, .type-grid, .board-grid, .el-grid, .swatches { grid-template-columns: 1fr; }
+  }
 
   .svc .item { display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-4); align-items: baseline; padding: 22px 0; border-top: 1px solid var(--line); }
   .svc .item:last-child { border-bottom: 1px solid var(--line); }
@@ -292,45 +318,96 @@
 <section class="block" id="brand-kit">
   <div class="wrap">
     <div class="pillars-head r">
-      <div class="sec-label"><span class="dot"></span><span class="eyebrow">Brand kit · v2.0</span></div>
-      <h2>Identity system for teams and partners.</h2>
-      <p class="lead" style="margin-top:12px;">Logo, color, type, spacing and applications — open the full guidelines or use the essentials below.</p>
+      <div class="sec-label"><span class="dot"></span><span class="eyebrow">Brand identity system</span></div>
+      <h2>Palette, type, logo, elements &amp; applications.</h2>
+      <p class="lead" style="margin-top:12px;">Everything from the Across Origin brand boards — preview here, or open the full kit.</p>
+      <p style="margin-top:16px;"><a href="brand-kit.html" class="btn solid" style="display:inline-block;">Open full brand kit</a></p>
     </div>
 
-    <div class="kit-grid" style="margin-bottom:var(--sp-5);">
+    <!-- COLOR -->
+    <div class="kit-sub r">
+      <div class="sec-label"><span class="dot"></span><span class="eyebrow">Brand colors</span></div>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#14267B"></div><div class="m"><div class="nm">Deep Indigo</div><div class="vl">#14267B</div><div class="meaning">Trust · Knowledge · Stability · Global</div></div></div>
+        <div class="sw"><div class="chip" style="background:#F4A62A"></div><div class="m"><div class="nm">Marigold Gold</div><div class="vl">#F4A62A</div><div class="meaning">Origin · Growth · Opportunity</div></div></div>
+        <div class="sw"><div class="chip" style="background:#F3F5FA;border-bottom:1px solid var(--line)"></div><div class="m"><div class="nm">Light Neutral</div><div class="vl">#F3F5FA</div><div class="meaning">Clean · Modern · Professional</div></div></div>
+        <div class="sw"><div class="chip" style="background:#1F2937"></div><div class="m"><div class="nm">Charcoal</div><div class="vl">#1F2937</div><div class="meaning">Text · Neutral · Balance</div></div></div>
+      </div>
+    </div>
+
+    <!-- TYPE -->
+    <div class="kit-sub r">
+      <div class="sec-label"><span class="dot"></span><span class="eyebrow">Brand typography</span></div>
+      <div class="type-grid">
+        <div class="type-card">
+          <div class="eyebrow">Primary · Montserrat</div>
+          <div class="big">Across Origin</div>
+          <p class="lead" style="margin-top:10px;font-size:0.95rem;">Headings, UI, labels. Bold 700 · SemiBold 600 · Medium 500.</p>
+        </div>
+        <div class="type-card">
+          <div class="eyebrow">Secondary · Lora</div>
+          <div class="serif">From the Source to Every Nation</div>
+          <p class="lead" style="margin-top:10px;font-size:0.95rem;">Tagline &amp; editorial. Body UI: Inter Regular / Medium.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO VARIATIONS -->
+    <div class="kit-sub r">
+      <div class="sec-label"><span class="dot"></span><span class="eyebrow">Brand logo variations</span></div>
+      <div class="var-row">
+        <div class="var-tile"><img src="/assets/logo-mark.png" width="72" height="72" alt=""><div class="cap">Full color</div></div>
+        <div class="var-tile ink"><img src="/assets/logo-mark.png" width="72" height="72" alt="" style="filter:brightness(0) invert(1);"><div class="cap">On indigo</div></div>
+        <div class="var-tile dark"><img src="/assets/logo-mark.png" width="72" height="72" alt=""><div class="cap">On black</div></div>
+        <div class="var-tile" style="background:var(--gold);"><img src="/assets/logo-mark.png" width="72" height="72" alt="" style="filter:brightness(0) invert(1);"><div class="cap" style="color:rgba(0,0,0,.55);">On gold</div></div>
+      </div>
+    </div>
+
+    <!-- ELEMENTS -->
+    <div class="kit-sub r">
+      <div class="sec-label"><span class="dot"></span><span class="eyebrow">Brand elements</span></div>
+      <div class="el-grid">
+        <div class="el"><svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><circle cx="24" cy="24" r="14"/><ellipse cx="24" cy="24" rx="6" ry="14"/><path d="M10 24h28"/></svg><div class="t">Global Reach</div></div>
+        <div class="el"><svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M24 12v24M10 14c6 2 10 2 14 0v22c-4 2-8 2-14 0V14zM38 14c-6 2-10 2-14 0v22c4 2 8 2 14 0V14z"/></svg><div class="t">Publishing</div></div>
+        <div class="el"><svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M8 30c0-8 6-14 16-14s16 6 16 14v2H8z"/><circle cx="24" cy="22" r="1.5" fill="#F4A62A" stroke="none"/></svg><div class="t">Translation</div></div>
+        <div class="el"><svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><rect x="10" y="12" width="28" height="24" rx="4"/><path d="M20 18l12 6-12 6V18z" fill="#F4A62A" stroke="none"/></svg><div class="t">Media</div></div>
+        <div class="el"><svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M12 34V22M20 34V16M28 34V24M36 34V12"/><path d="M10 36h28" stroke="#F4A62A"/></svg><div class="t">Marketing</div></div>
+        <div class="el"><svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M10 22l14-8 14 8-14 8-14-8z"/><path d="M16 25v8c4 3 12 3 16 0v-8"/></svg><div class="t">Training</div></div>
+        <div class="el"><svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M24 34c-8-6-12-10-12-16a8 8 0 0116 0 8 8 0 0116 0c0 6-4 10-12 16z"/></svg><div class="t">Social Impact</div></div>
+        <div class="el" style="display:flex;align-items:center;justify-content:center;"><a href="brand-kit.html" class="go" style="font-family:var(--font-display);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--indigo);">See all →</a></div>
+      </div>
+    </div>
+
+    <!-- APPLICATIONS / STYLEBOARDS -->
+    <div class="kit-sub r">
+      <div class="sec-label"><span class="dot"></span><span class="eyebrow">Brand applications</span></div>
+      <div class="board-grid">
+        <a href="/assets/brand-styleboard-1.jpg" target="_blank"><img src="/assets/brand-styleboard-1.jpg" alt="Across Origin brand styleboard — logo, color, type, applications"></a>
+        <a href="/assets/brand-styleboard-2.jpg" target="_blank"><img src="/assets/brand-styleboard-2.jpg" alt="Across Origin brand board — stationery, apparel, signage"></a>
+      </div>
+      <p class="lead" style="margin-top:16px;">Stationery, apparel, merchandise, office signage, vehicle branding and digital — full boards in the brand kit.</p>
+    </div>
+
+    <div class="kit-grid" style="margin-top:var(--sp-5);">
       <a class="kit-card r" href="brand-kit.html">
         <img class="ico logo-mark" src="/assets/logo-mark.png" alt="" width="56" height="56">
         <h3>Full brand kit</h3>
-        <p>Complete V2.0 guidelines: construction, clear space, variants, type, print and digital exports.</p>
+        <p>Colors, type, variations, elements, clear space, downloads.</p>
         <span class="go">Open brand kit →</span>
       </a>
       <a class="kit-card r d1" href="/assets/logo-mark.png" download>
         <img class="ico logo-mark" src="/assets/logo-mark.png" alt="" width="56" height="56">
         <h3>Logo mark</h3>
-        <p>Official emblem PNG (transparent). Use for web, social and presentations.</p>
+        <p>Official emblem PNG (transparent).</p>
         <span class="go">Download mark →</span>
       </a>
       <a class="kit-card r d2" href="/assets/logo-full-lockup.png" download>
         <img class="ico logo-mark" src="/assets/logo-mark.png" alt="" width="56" height="56">
         <h3>Full lockup</h3>
-        <p>Mark + Across Origin + Venture Private Limited + tagline.</p>
+        <p>Mark + wordmark + descriptor + tagline.</p>
         <span class="go">Download lockup →</span>
       </a>
     </div>
-
-    <div class="sec-label r"><span class="dot"></span><span class="eyebrow">Palette</span></div>
-    <div class="swatches r d1">
-      <div class="sw"><div class="chip" style="background:#14267B"></div><div class="m"><div class="nm">Deep Indigo</div><div class="vl">#14267B · RGB 20,38,123</div></div></div>
-      <div class="sw"><div class="chip" style="background:#F4A22A"></div><div class="m"><div class="nm">Marigold Gold</div><div class="vl">#F4A22A · RGB 244,162,42</div></div></div>
-      <div class="sw"><div class="chip" style="background:#F3F5FA;border-bottom:1px solid var(--line)"></div><div class="m"><div class="nm">Light Neutral</div><div class="vl">#F3F5FA</div></div></div>
-      <div class="sw"><div class="chip" style="background:#1F2937"></div><div class="m"><div class="nm">Charcoal</div><div class="vl">#1F2937 · body text</div></div></div>
-    </div>
-
-    <p class="lead r d2" style="margin-top:var(--sp-4);">
-      <strong style="color:var(--indigo);font-family:var(--font-display);">Type:</strong>
-      Montserrat (headings) · Inter (body / UI) · Lora (tagline / editorial).
-      Layout ratio guide: 65–75% light, 20–30% indigo, up to 5–10% gold.
-    </p>
   </div>
 </section>
 

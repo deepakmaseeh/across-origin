@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Across Origin — Brand Kit v2.0</title>
+<link rel="icon" href="/favicon.png?v=3" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #14267B; --gold: #F4A22A; --neutral: #F3F5FA; --charcoal: #1F2937;
+    --white: #fff; --muted: #5b6472; --line: #d8dee9;
+    --display: Montserrat, system-ui, sans-serif; --serif: Lora, Georgia, serif; --body: Inter, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--neutral); color: var(--charcoal); font-family: var(--body); line-height: 1.65; }
+  a { color: var(--indigo); text-decoration: none; }
+  a:hover { color: var(--gold); }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 28px; }
+  .label { font-family: var(--display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  h1, h2, h3 { font-family: var(--display); color: var(--indigo); letter-spacing: -0.02em; text-wrap: balance; }
+  h1 { font-weight: 700; font-size: clamp(2rem, 4vw, 2.8rem); }
+  h2 { font-weight: 600; font-size: 1.45rem; margin: 40px 0 14px; padding-top: 28px; border-top: 1px solid var(--line); }
+  h3 { font-weight: 600; font-size: 1.05rem; margin: 18px 0 8px; }
+  p, li { color: var(--muted); font-size: 0.95rem; }
+  ul { padding-left: 1.2em; margin: 8px 0 16px; display: flex; flex-direction: column; gap: 6px; }
+  .topbar { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+  .topbar .inner { max-width: 1000px; margin: 0 auto; padding: 12px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .topbar .brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; color: var(--indigo); }
+  .topbar .brand span { color: var(--gold); }
+  .topbar .back { font-family: var(--display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  header.hero { padding: 64px 0 40px; }
+  header.hero .meta { font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 14px; }
+  .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 28px 0 8px; }
+  .toc a { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; font-family: var(--display); font-size: 0.72rem; font-weight: 600; color: var(--indigo); }
+  .toc a:hover { border-color: var(--gold); color: var(--gold); }
+  .mark { color: var(--indigo); }
+  .panel { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 28px; margin: 16px 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--white); }
+  .sw .chip { height: 72px; }
+  .sw .m { padding: 10px; font-family: var(--display); font-size: 0.68rem; }
+  .sw .nm { font-weight: 600; color: var(--indigo); }
+  .sw .vl { color: var(--muted); margin-top: 3px; }
+  .lockup { text-align: center; }
+  .lockup .name { font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: var(--indigo); margin-top: 12px; }
+  .lockup .name span { color: var(--gold); }
+  .lockup .co { font-family: var(--display); font-size: 0.58rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--indigo); margin-top: 6px; }
+  .lockup .tag { font-family: var(--serif); font-style: italic; color: var(--gold); margin-top: 10px; font-size: 0.9rem; }
+  .lockup .rules { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 8px; }
+  .lockup .rules i { height: 1px; width: 36px; background: var(--indigo); display: block; }
+  .hz { display: flex; align-items: center; gap: 18px; }
+  .note { background: #eef2fb; border-left: 3px solid var(--gold); padding: 14px 16px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.88rem; color: var(--charcoal); }
+  .variants { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .v { border: 1px solid var(--line); border-radius: 8px; padding: 20px; text-align: center; background: var(--white); }
+  .v.ink { background: var(--indigo); }
+  .v .cap { font-family: var(--display); font-size: 0.65rem; font-weight: 600; margin-top: 10px; color: var(--muted); }
+  .v.ink .cap { color: rgba(255,255,255,0.7); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; background: var(--white); border-radius: 8px; overflow: hidden; }
+  th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; }
+  th { font-family: var(--display); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; background: #eef2fb; color: var(--indigo); }
+  footer { padding: 48px 0 80px; color: var(--muted); font-size: 0.85rem; }
+  @media (max-width: 800px) {
+    .toc, .row2, .swatches, .variants { grid-template-columns: 1fr 1fr; }
+    .hz { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 520px) {
+    .toc, .swatches, .variants { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ao-mark" viewBox="0 0 200 200" fill="none">
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M100 58 L100 148" stroke-width="7.5"/>
+      <path d="M100 60 L74 152" stroke-width="7"/>
+      <path d="M100 60 L126 152" stroke-width="7"/>
+      <path d="M100 64 L54 158" stroke-width="6.5"/>
+      <path d="M100 64 L146 158" stroke-width="6.5"/>
+      <path d="M100 52 C78 78 52 118 34 178" stroke-width="14"/>
+      <path d="M100 52 C122 78 148 118 166 178" stroke-width="14"/>
+      <path d="M48 118 C72 132 128 132 152 118" stroke-width="5.5"/>
+    </g>
+    <g transform="translate(100 38)">
+      <g fill="#F4A22A">
+        <polygon points="0,-28 3.2,-16 -3.2,-16"/>
+        <polygon points="0,28 3.2,16 -3.2,16"/>
+        <polygon points="-28,0 -16,3.2 -16,-3.2"/>
+        <polygon points="28,0 16,3.2 16,-3.2"/>
+        <polygon points="-19.8,-19.8 -9.5,-14.2 -14.2,-9.5"/>
+        <polygon points="19.8,-19.8 9.5,-14.2 14.2,-9.5"/>
+        <polygon points="-19.8,19.8 -14.2,9.5 -9.5,14.2"/>
+        <polygon points="19.8,19.8 14.2,9.5 9.5,14.2"/>
+      </g>
+      <circle r="12" fill="#F4A22A"/>
+    </g>
+  </symbol>
+</svg>
+
+<div class="topbar">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="mark" width="28" height="28" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
+      Across <span>Origin</span>
+    </a>
+    <a class="back" href="index.html">← Back to site</a>
+  </div>
+</div>
+
+<header class="hero wrap">
+  <p class="label">Professional Brand Guidelines &amp; Identity System</p>
+  <h1>Across Origin Brand Kit</h1>
+  <p style="margin-top:12px;max-width:54ch;color:var(--muted);">From the Source to Every Nation — logo construction, typography, color, spacing, production, digital exports, applications and governance.</p>
+  <p class="meta">Version 2.0 · Design Handoff Edition · 17 October 2026</p>
+
+  <div class="toc">
+    <a href="#strategy">01 Strategy</a>
+    <a href="#logo">02 Logo system</a>
+    <a href="#construction">03 Construction</a>
+    <a href="#clearspace">04 Clear space</a>
+    <a href="#variants">05 Variants</a>
+    <a href="#color">06 Color</a>
+    <a href="#type">07 Typography</a>
+    <a href="#digital">08 Digital &amp; print</a>
+    <a href="#downloads">09 Downloads</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="note">The board reference is a raster preview. Exact vector coordinates should be verified against an approved master before large-scale production. Geometry below matches the rebuilt working SVG for web and interim use.</div>
+
+  <h2 id="strategy">01. Brand strategy &amp; positioning</h2>
+  <div class="panel">
+    <h3>Brand essence</h3>
+    <p>Ideas from one source, reaching people everywhere.</p>
+    <h3>Brand promise</h3>
+    <p>Across Origin turns knowledge, stories and ideas into accessible content that can travel across languages, formats and communities.</p>
+    <h3>Personality</h3>
+    <p>Credible, thoughtful, globally minded, warm, modern, editorial and dependable.</p>
+    <h3>Positioning</h3>
+    <p>A publishing-led media and knowledge company with room to expand into translation, training, education, communications and social-impact work.</p>
+    <h3>Tagline</h3>
+    <p><em style="font-family:var(--serif);color:var(--gold);font-size:1.15rem;">From the Source to Every Nation</em></p>
+    <p style="margin-top:8px;">Keep exact capitalization and wording. Do not add a final full stop. Omit from tiny icons and cramped placements.</p>
+  </div>
+
+  <h2 id="logo">02. Logo system &amp; meaning</h2>
+  <div class="row2">
+    <div class="panel lockup">
+      <svg class="mark" width="140" height="140" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
+      <div class="name">Across <span>Origin</span></div>
+      <div class="co">Venture Private Limited</div>
+      <div class="rules"><i></i><div class="tag">From the Source to Every Nation</div><i></i></div>
+      <p style="margin-top:16px;font-size:0.8rem;">Primary vertical lockup</p>
+    </div>
+    <div class="panel">
+      <div class="hz">
+        <svg class="mark" width="88" height="88" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
+        <div>
+          <div class="name" style="font-family:var(--display);font-weight:700;font-size:1.35rem;color:var(--indigo);">Across <span style="color:var(--gold);">Origin</span></div>
+          <div class="co" style="font-family:var(--display);font-size:0.58rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--indigo);margin-top:6px;">Venture Private Limited</div>
+          <div style="font-family:var(--serif);font-style:italic;color:var(--gold);margin-top:8px;">From the Source to Every Nation</div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:0.8rem;">Horizontal lockup — website header, email, stationery</p>
+    </div>
+  </div>
+  <ul>
+    <li><strong>Origin circle</strong> — the source; flat marigold fill, no glow.</li>
+    <li><strong>A-frame</strong> — initial A and stable structure; balanced legs, apex centered on the circle.</li>
+    <li><strong>Main rays / pathways</strong> — structural beams, not decoration.</li>
+    <li><strong>Global arc</strong> — single clean curve for connection across nations.</li>
+  </ul>
+
+  <h2 id="construction">03. Construction grid &amp; ratios</h2>
+  <table>
+    <tr><th>Element</th><th>Working target</th></tr>
+    <tr><td>Emblem width W</td><td>100 units (define from master)</td></tr>
+    <tr><td>Working W:H</td><td>≈ 1.00 : 0.76 (provisional)</td></tr>
+    <tr><td>Origin circle diameter</td><td>≈ 0.17W</td></tr>
+    <tr><td>Outer A strokes</td><td>≈ 0.055W</td></tr>
+    <tr><td>Inner pathways</td><td>≈ 0.022W</td></tr>
+    <tr><td>Global arc</td><td>≈ 0.023W</td></tr>
+  </table>
+  <p>Origin circle center, A apex and vertical centerline share one axis. After master approval, freeze measured values — never alter them independently.</p>
+
+  <h2 id="clearspace">04. Clear space &amp; minimum size</h2>
+  <div class="panel" style="display:flex;gap:32px;align-items:center;flex-wrap:wrap;">
+    <div style="border:1px dashed var(--gold);padding:28px;border-radius:8px;">
+      <svg class="mark" width="100" height="100" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
+    </div>
+    <div>
+      <p><strong>Clear-space unit X</strong> = 0.12 × emblem width (provisional for symbol-only).</p>
+      <p style="margin-top:10px;"><strong>Symbol print:</strong> 20 mm min (25 mm preferred).<br>
+      <strong>Symbol digital:</strong> 32 px min (48 px preferred).<br>
+      <strong>Favicon:</strong> 16 / 24 / 32 px symbol-only.<br>
+      <strong>Horizontal lockup:</strong> 220 px digital / 45 mm print.</p>
+    </div>
+  </div>
+
+  <h2 id="variants">05. Official logo variants</h2>
+  <div class="variants">
+    <div class="v"><svg class="mark" width="72" height="72" viewBox="0 0 200 200"><use href="#ao-mark"/></svg><div class="cap">A Full color</div></div>
+    <div class="v" style="color:#14267B"><svg width="72" height="72" viewBox="0 0 200 200" style="color:#14267B"><use href="#ao-mark"/></svg><div class="cap">E One-color indigo</div></div>
+    <div class="v" style="background:#111"><svg width="72" height="72" viewBox="0 0 200 200" style="color:#fff"><use href="#ao-mark"/></svg><div class="cap" style="color:#aaa">G Reversed white</div></div>
+    <div class="v ink"><svg width="72" height="72" viewBox="0 0 200 200" style="color:#F3F5FA"><use href="#ao-mark"/></svg><div class="cap">On deep indigo</div></div>
+  </div>
+  <p style="margin-top:14px;"><strong>Not permitted:</strong> glow, gradient, texture, bevel, shadow, stretched proportions, unapproved colors, or rearranging elements.</p>
+
+  <h2 id="color">06. Color system</h2>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#14267B"></div><div class="m"><div class="nm">Deep Indigo</div><div class="vl">#14267B</div></div></div>
+    <div class="sw"><div class="chip" style="background:#F4A22A"></div><div class="m"><div class="nm">Marigold Gold</div><div class="vl">#F4A22A</div></div></div>
+    <div class="sw"><div class="chip" style="background:#F3F5FA;border-bottom:1px solid var(--line)"></div><div class="m"><div class="nm">Light Neutral</div><div class="vl">#F3F5FA</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1F2937"></div><div class="m"><div class="nm">Charcoal</div><div class="vl">#1F2937</div></div></div>
+    <div class="sw"><div class="chip" style="background:#fff;border-bottom:1px solid var(--line)"></div><div class="m"><div class="nm">White</div><div class="vl">#FFFFFF</div></div></div>
+  </div>
+  <p style="margin-top:14px;">Layout ratio guide: 65–75% white/light neutral, 20–30% indigo, up to 5–10% gold. Gold is accent — not body text. CMYK values need printer proofing.</p>
+
+  <h2 id="type">07. Typography</h2>
+  <table>
+    <tr><th>Role</th><th>Family</th><th>Weight</th></tr>
+    <tr><td>Headings</td><td>Montserrat</td><td>600 / 700</td></tr>
+    <tr><td>Body / UI</td><td>Inter</td><td>400 / 500</td></tr>
+    <tr><td>Tagline / editorial</td><td>Lora</td><td>400 / italic</td></tr>
+  </table>
+  <p>Do not recreate the logo by typing Montserrat — wordmark lettering must be outlined vector paths in the master. Web scale: H1 48/36 · H2 32/28 · body 16/18 · never below 12 px for essential digital text. Spacing base: 8 px.</p>
+
+  <h2 id="digital">08. Digital &amp; print production</h2>
+  <ul>
+    <li><strong>Vector-first</strong> — SVG or print-ready PDF; never enlarge a small PNG for professional print.</li>
+    <li><strong>PNG sizes</strong> — 16, 24, 32, 48, 64, 128, 180, 192, 256, 512, 1024 as needed.</li>
+    <li><strong>Website header</strong> — horizontal lockup; symbol height typically 28–40 px.</li>
+    <li><strong>Social avatar</strong> — symbol-only 1080×1080 with generous padding.</li>
+    <li><strong>Bleed</strong> — confirm with printer; 3 mm common starting point in India.</li>
+    <li><strong>Never</strong> let a vendor redraw the logo from a screenshot.</li>
+  </ul>
+
+  <h2 id="downloads">09. Downloads &amp; naming</h2>
+  <div class="panel">
+    <p><a href="mark.svg" download><strong>mark.svg</strong></a> — core symbol master</p>
+    <p style="margin-top:8px;"><a href="favicon.svg" download><strong>favicon.svg</strong></a> — browser / app icon</p>
+    <p style="margin-top:8px;"><a href="index.html"><strong>Website</strong></a> — live marketing site</p>
+    <p style="margin-top:16px;">Naming: <code>AcrossOrigin_Logo_[Lockup]_[Colorway]_[Format]_v1-0</code></p>
+    <p style="margin-top:8px;">Folders: Master_Vector · Print_PDF · Digital_SVG · PNG_Transparent · Monochrome_Reversed · Stationery · Guidelines · Licenses.</p>
+  </div>
+
+  <div class="note">Trademark clearance, designer assignment of artwork rights, and printer proofs should be completed before large-scale investment. This kit does not certify legal registrability.</div>
+
+</main>
+
+<footer class="wrap">
+  Across Origin Venture Private Limited · Brand Guidelines v2.0 · 17 October 2026
+</footer>
+</body>
+</html>

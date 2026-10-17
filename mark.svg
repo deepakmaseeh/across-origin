@@ -1,0 +1,38 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Across Origin mark">
+  <!--
+    Across Origin core mark — rebuilt from brand board (V2.0 handoff).
+    Elements: origin sun, A-frame legs, main pathway rays, global arc.
+    Colors: Deep Indigo #14267B · Marigold Gold #F4A22A
+  -->
+  <!-- Main pathway rays (structural beams) -->
+  <g stroke="#14267B" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100 58 L100 148" stroke-width="7.5"/>
+    <path d="M100 60 L74 152" stroke-width="7"/>
+    <path d="M100 60 L126 152" stroke-width="7"/>
+    <path d="M100 64 L54 158" stroke-width="6.5"/>
+    <path d="M100 64 L146 158" stroke-width="6.5"/>
+  </g>
+
+  <!-- Outer A-frame legs -->
+  <path d="M100 52 C78 78 52 118 34 178" stroke="#14267B" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 52 C122 78 148 118 166 178" stroke="#14267B" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Global arc / horizon -->
+  <path d="M48 118 C72 132 128 132 152 118" stroke="#14267B" stroke-width="5.5" stroke-linecap="round"/>
+
+  <!-- Origin sun -->
+  <g transform="translate(100 38)">
+    <!-- Triangular rays -->
+    <g fill="#F4A22A">
+      <polygon points="0,-28 3.2,-16 -3.2,-16"/>
+      <polygon points="0,28 3.2,16 -3.2,16"/>
+      <polygon points="-28,0 -16,3.2 -16,-3.2"/>
+      <polygon points="28,0 16,3.2 16,-3.2"/>
+      <polygon points="-19.8,-19.8 -9.5,-14.2 -14.2,-9.5"/>
+      <polygon points="19.8,-19.8 9.5,-14.2 14.2,-9.5"/>
+      <polygon points="-19.8,19.8 -14.2,9.5 -9.5,14.2"/>
+      <polygon points="19.8,19.8 14.2,9.5 9.5,14.2"/>
+    </g>
+    <circle r="12" fill="#F4A22A"/>
+  </g>
+</svg>

@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Across Origin — From the Source to Every Nation</title>
-<link rel="icon" href="/favicon.png?v=1" type="image/png" sizes="32x32">
-<link rel="icon" href="/favicon.svg?v=1" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1">
+<link rel="icon" href="/favicon.png?v=3" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --indigo: #14267B;
     --indigo-soft: #2a3d9a;
-    --gold: #F4A62A;
+    --gold: #F4A22A;
     --gold-deep: #d4891a;
     --neutral: #F3F5FA;
     --charcoal: #1F2937;
@@ -29,203 +29,230 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { background: var(--neutral); color: var(--charcoal); font-family: var(--font-body); line-height: 1.65; }
-  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; color: var(--indigo); }
+  body { background: var(--neutral); color: var(--charcoal); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+  h1, h2, h3, h4 { font-family: var(--font-display); color: var(--indigo); letter-spacing: -0.02em; text-wrap: balance; }
+  h1 { font-weight: 700; } h2, h3 { font-weight: 600; }
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: 1160px; margin: 0 auto; padding-inline: var(--sp-4); }
-  .eyebrow { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); }
-  .lead { font-size: 1.1rem; color: var(--muted); max-width: 58ch; line-height: 1.75; }
+  .eyebrow { font-family: var(--font-display); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); }
+  .lead { font-size: 18px; line-height: 28px; color: var(--muted); max-width: 58ch; }
   .r { opacity: 0; transform: translateY(22px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
   .r.in { opacity: 1; transform: none; }
-  .r.d1 { transition-delay: 0.08s; } .r.d2 { transition-delay: 0.16s; } .r.d3 { transition-delay: 0.24s; } .r.d4 { transition-delay: 0.32s; }
-  @media (prefers-reduced-motion: reduce) { .r { opacity: 1; transform: none; transition: none; } }
+  .r.d1 { transition-delay: .08s; } .r.d2 { transition-delay: .16s; } .r.d3 { transition-delay: .24s; } .r.d4 { transition-delay: .32s; }
+  @media (prefers-reduced-motion: reduce) { .r { opacity: 1; transform: none; } }
   .sec-label { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
   .sec-label .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
 
+  /* Mark color helper */
+  .mark { color: var(--indigo); }
+  .mark-light { color: #F3F5FA; }
+
   nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--neutral) 90%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-  nav .bar { max-width: 1160px; margin: 0 auto; padding: 14px var(--sp-4); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav .bar { max-width: 1160px; margin: 0 auto; padding: 12px var(--sp-4); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav .brand { display: flex; align-items: center; gap: 12px; }
-  nav .brand .wm { font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: -0.01em; }
+  nav .brand .wm { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--indigo); }
   nav .brand .wm span { color: var(--gold); }
-  nav .links { display: flex; gap: 28px; font-family: var(--font-display); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  nav .links { display: flex; gap: 22px; font-family: var(--font-display); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
   nav .links a:hover { color: var(--indigo); }
-  nav .cta { font-family: var(--font-display); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: var(--indigo); color: var(--white); padding: 10px 18px; border-radius: 6px; }
+  nav .cta { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: var(--indigo); color: var(--white); padding: 10px 16px; border-radius: 6px; }
   nav .cta:hover { background: var(--indigo-soft); }
-  @media (max-width: 900px) { nav .links { display: none; } }
+  @media (max-width: 960px) { nav .links { display: none; } }
 
   .hero { position: relative; text-align: center; padding: var(--sp-7) var(--sp-4) var(--sp-6); overflow: hidden; background: linear-gradient(180deg, #fff 0%, var(--neutral) 100%); }
-  .hero .glow { position: absolute; inset: 10% 20% auto; height: 280px; background: radial-gradient(circle, rgba(244,166,42,0.18), transparent 70%); pointer-events: none; }
+  .hero .glow { position: absolute; inset: 8% 18% auto; height: 280px; background: radial-gradient(circle, rgba(244,162,42,0.16), transparent 70%); pointer-events: none; }
   .hero .inner { position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; }
-  .hero h1 { font-size: clamp(2.6rem, 7vw, 4.8rem); line-height: 1.02; max-width: 14ch; }
+  .hero h1 { font-size: clamp(2.4rem, 6.5vw, 3.75rem); line-height: 1.12; max-width: 16ch; }
   .hero h1 em { font-style: normal; color: var(--gold); }
-  .hero .sub { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.45rem); color: var(--indigo-soft); }
-  .hero .actions { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; justify-content: center; }
-  .btn { font-family: var(--font-display); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 24px; border-radius: 6px; transition: transform 0.2s var(--ease), background 0.2s; }
+  .hero .sub { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.4rem); color: var(--indigo-soft); }
+  .hero .actions { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; justify-content: center; }
+  .btn { font-family: var(--font-display); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 22px; border-radius: 6px; transition: transform .2s var(--ease), background .2s; }
   .btn.solid { background: var(--indigo); color: var(--white); }
   .btn.solid:hover { transform: translateY(-2px); background: var(--gold-deep); }
   .btn.ghost { border: 1.5px solid var(--indigo); color: var(--indigo); }
   .btn.ghost:hover { background: var(--indigo); color: var(--white); }
 
   .strip { border-block: 1px solid var(--line); background: var(--white); overflow: hidden; }
-  .strip .row { display: flex; gap: 40px; padding: 14px 0; font-family: var(--font-display); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; animation: slide 32s linear infinite; }
+  .strip .row { display: flex; gap: 40px; padding: 14px 0; font-family: var(--font-display); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; animation: slide 34s linear infinite; }
   .strip .row span::after { content: '·'; color: var(--gold); margin-left: 40px; }
   @keyframes slide { to { transform: translateX(-50%); } }
 
   section.block { padding-block: var(--sp-7); }
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
-  .stat .fig { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.4rem, 4vw, 3.6rem); color: var(--indigo); line-height: 1; }
+  .stat .fig { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4vw, 3.4rem); color: var(--indigo); line-height: 1; }
   .stat .fig em { font-style: normal; color: var(--gold); }
-  .stat .cap { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+  .stat .cap { font-family: var(--font-display); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
 
   .intro { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); align-items: center; }
-  .intro h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; }
+  .intro h2 { font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15; }
   .intro h2 em { font-style: normal; color: var(--gold); }
 
   .pillars-head { max-width: 58ch; margin-bottom: var(--sp-5); }
-  .pillars-head h2 { font-size: clamp(2rem, 4vw, 3rem); }
+  .pillars-head h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
   .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
   .pillar { background: var(--white); padding: var(--sp-5) var(--sp-4); }
   .pillar:hover { background: #eef2fb; }
-  .pillar .n { font-family: var(--font-serif); font-style: italic; font-size: 1.4rem; color: var(--gold-deep); }
-  .pillar h3 { font-size: 1.4rem; margin: 10px 0 8px; }
+  .pillar .n { font-family: var(--font-serif); font-style: italic; font-size: 1.35rem; color: var(--gold-deep); }
+  .pillar h3 { font-size: 1.35rem; margin: 10px 0 8px; }
   .pillar p { color: var(--muted); max-width: 40ch; }
   .pillar ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-  .pillar ul li { font-family: var(--font-display); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; color: var(--indigo-soft); }
+  .pillar ul li { font-family: var(--font-display); font-size: 0.64rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; color: var(--indigo-soft); }
 
   .mark-sec { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--sp-6); align-items: center; }
-  .mark-stage { background: var(--white); border: 1px solid var(--line); border-radius: 12px; display: grid; place-items: center; padding: var(--sp-5); min-height: 360px; }
+  .mark-stage { background: var(--white); border: 1px solid var(--line); border-radius: 12px; display: grid; place-items: center; padding: var(--sp-5); min-height: 380px; }
   .constructs { display: flex; flex-direction: column; gap: 26px; }
-  .construct .k { font-family: var(--font-display); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 6px; }
-  .construct h3 { font-size: 1.25rem; margin-bottom: 6px; }
+  .construct .k { font-family: var(--font-display); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 6px; }
+  .construct h3 { font-size: 1.2rem; margin-bottom: 6px; }
   .construct p { color: var(--muted); font-size: 0.95rem; max-width: 36ch; }
 
   .band { background: var(--indigo); color: var(--white); padding-block: var(--sp-7); position: relative; overflow: hidden; }
-  .band .glow { position: absolute; right: -80px; top: 40%; width: 360px; height: 360px; background: radial-gradient(circle, rgba(244,166,42,0.28), transparent 68%); }
-  .band .inner { position: relative; max-width: 28ch; }
+  .band .glow { position: absolute; right: -80px; top: 40%; width: 360px; height: 360px; background: radial-gradient(circle, rgba(244,162,42,0.28), transparent 68%); }
+  .band .inner { position: relative; max-width: 30ch; }
   .band .eyebrow { color: var(--gold); }
-  .band h2 { color: var(--white); font-size: clamp(2rem, 4.2vw, 3.2rem); margin-top: 14px; line-height: 1.08; }
+  .band h2 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-top: 14px; line-height: 1.12; }
   .band h2 em { font-style: normal; color: var(--gold); }
   .band p { color: rgba(255,255,255,0.78); margin-top: 16px; max-width: 48ch; font-size: 1.08rem; }
+
+  .kit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .kit-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 28px 24px; transition: border-color .2s; }
+  .kit-card:hover { border-color: var(--gold); }
+  .kit-card .ico { width: 56px; height: 56px; margin-bottom: 16px; color: var(--indigo); }
+  .kit-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .kit-card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 16px; }
+  .kit-card .go { font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--indigo); }
+
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .sw { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--white); }
+  .sw .chip { height: 96px; }
+  .sw .m { padding: 12px 14px; }
+  .sw .nm { font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: var(--indigo); }
+  .sw .vl { font-family: var(--font-display); font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
 
   .svc .item { display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-4); align-items: baseline; padding: 22px 0; border-top: 1px solid var(--line); }
   .svc .item:last-child { border-bottom: 1px solid var(--line); }
   .svc .num { font-family: var(--font-display); font-weight: 700; color: var(--gold-deep); }
-  .svc h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
+  .svc h3 { font-size: clamp(1.25rem, 2.4vw, 1.7rem); }
   .svc p { color: var(--muted); text-align: right; max-width: 32ch; font-size: 0.95rem; }
 
   .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
   .pstep { padding-top: 18px; border-top: 3px solid var(--indigo); }
-  .pstep .k { font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; color: var(--gold-deep); }
-  .pstep h4 { font-size: 1.2rem; margin: 10px 0 8px; }
+  .pstep .k { font-family: var(--font-display); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; color: var(--gold-deep); }
+  .pstep h4 { font-size: 1.15rem; margin: 10px 0 8px; }
   .pstep p { color: var(--muted); font-size: 0.92rem; }
 
   .final { text-align: center; }
-  .final h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); max-width: 16ch; margin: 0 auto 14px; }
+  .final h2 { font-size: clamp(2.1rem, 4.5vw, 3.2rem); max-width: 16ch; margin: 0 auto 14px; }
   .final h2 em { font-style: normal; color: var(--gold); }
 
   footer { border-top: 1px solid var(--line); background: var(--white); padding-block: var(--sp-5); }
   footer .cols { display: flex; justify-content: space-between; gap: var(--sp-5); flex-wrap: wrap; }
-  footer .wm { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--indigo); }
+  footer .wm { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--indigo); }
   footer .wm span { color: var(--gold); }
   footer .tag { font-family: var(--font-serif); font-style: italic; color: var(--muted); margin-top: 6px; }
-  footer .fine { font-family: var(--font-display); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; margin-top: 18px; line-height: 1.7; }
-  footer .fcol h4 { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+  footer .fine { font-family: var(--font-display); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; margin-top: 18px; line-height: 1.7; }
+  footer .fcol h4 { font-family: var(--font-display); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
   footer .fcol a { display: block; color: var(--muted); padding: 3px 0; font-size: 0.92rem; }
   footer .fcol a:hover { color: var(--indigo); }
 
   @media (max-width: 900px) {
     :root { --sp-4: 20px; --sp-5: 40px; --sp-6: 56px; --sp-7: 72px; }
-    .stats, .pillars, .mark-sec, .process, .intro { grid-template-columns: 1fr; }
     .stats { grid-template-columns: 1fr 1fr; }
-    .pillars { grid-template-columns: 1fr; }
+    .pillars, .mark-sec, .process, .intro, .kit-grid { grid-template-columns: 1fr; }
+    .swatches { grid-template-columns: 1fr 1fr; }
     .svc .item { grid-template-columns: auto 1fr; }
     .svc .item p { grid-column: 2; text-align: left; }
     .hero .actions { flex-direction: column; width: 100%; max-width: 320px; }
     .btn { text-align: center; }
     footer .cols { flex-direction: column; }
   }
-  @media (max-width: 480px) {
-    .stats { gap: 24px 12px; }
-    .stat .fig { font-size: 2.2rem; }
-  }
 </style>
 </head>
 <body>
 
+<!-- Shared mark symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ao-mark" viewBox="0 0 200 200" fill="none">
+    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M100 58 L100 148" stroke-width="7.5"/>
+      <path d="M100 60 L74 152" stroke-width="7"/>
+      <path d="M100 60 L126 152" stroke-width="7"/>
+      <path d="M100 64 L54 158" stroke-width="6.5"/>
+      <path d="M100 64 L146 158" stroke-width="6.5"/>
+      <path d="M100 52 C78 78 52 118 34 178" stroke-width="14"/>
+      <path d="M100 52 C122 78 148 118 166 178" stroke-width="14"/>
+      <path d="M48 118 C72 132 128 132 152 118" stroke-width="5.5"/>
+    </g>
+    <g transform="translate(100 38)">
+      <g fill="#F4A22A">
+        <polygon points="0,-28 3.2,-16 -3.2,-16"/>
+        <polygon points="0,28 3.2,16 -3.2,16"/>
+        <polygon points="-28,0 -16,3.2 -16,-3.2"/>
+        <polygon points="28,0 16,3.2 16,-3.2"/>
+        <polygon points="-19.8,-19.8 -9.5,-14.2 -14.2,-9.5"/>
+        <polygon points="19.8,-19.8 9.5,-14.2 14.2,-9.5"/>
+        <polygon points="-19.8,19.8 -14.2,9.5 -9.5,14.2"/>
+        <polygon points="19.8,19.8 14.2,9.5 9.5,14.2"/>
+      </g>
+      <circle r="12" fill="#F4A22A"/>
+    </g>
+  </symbol>
+</svg>
+
 <nav>
   <div class="bar">
     <a class="brand" href="#">
-      <svg width="34" height="34" viewBox="0 0 240 240" aria-hidden="true"><use href="#ao-mark"/></svg>
+      <svg class="mark" width="36" height="36" viewBox="0 0 200 200" aria-hidden="true"><use href="#ao-mark"/></svg>
       <span class="wm">Across <span>Origin</span></span>
     </a>
     <div class="links">
       <a href="#about">About</a>
       <a href="#mark">The mark</a>
       <a href="#work">Pillars</a>
+      <a href="#brand-kit">Brand kit</a>
       <a href="#services">Services</a>
     </div>
-    <a href="#contact" class="cta">Start a conversation</a>
+    <a href="#contact" class="cta">Start a project</a>
   </div>
 </nav>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="ao-mark" viewBox="0 0 240 240" fill="none">
-    <path d="M36 200 C52 120 78 62 120 36" stroke="#14267B" stroke-width="26" stroke-linecap="round"/>
-    <path d="M204 200 C188 120 162 62 120 36" stroke="#14267B" stroke-width="26" stroke-linecap="round"/>
-    <g stroke="#14267B" stroke-width="6" stroke-linecap="round">
-      <line x1="120" y1="88" x2="120" y2="150"/><line x1="98" y1="94" x2="98" y2="162"/><line x1="142" y1="94" x2="142" y2="162"/>
-      <line x1="78" y1="104" x2="78" y2="172"/><line x1="162" y1="104" x2="162" y2="172"/>
-    </g>
-    <g transform="translate(120 40)">
-      <circle r="16" fill="#F4A62A"/>
-      <g stroke="#F4A62A" stroke-width="4" stroke-linecap="round">
-        <line y1="-24" y2="-32"/><line y1="24" y2="32"/><line x1="-24" x2="-32"/><line x1="24" x2="32"/>
-        <line x1="-17" y1="-17" x2="-23" y2="-23"/><line x1="17" y1="-17" x2="23" y2="-23"/>
-        <line x1="-17" y1="17" x2="-23" y2="23"/><line x1="17" y1="17" x2="23" y2="23"/>
-      </g>
-    </g>
-  </symbol>
-</svg>
 
 <header class="hero">
   <div class="glow"></div>
   <div class="inner">
-    <svg width="120" height="120" viewBox="0 0 240 240" aria-label="Across Origin mark"><use href="#ao-mark"/></svg>
-    <h1>From the source to <em>every nation</em>.</h1>
-    <p class="sub">Across Origin Venture Private Limited</p>
-    <p class="lead" style="text-align:center;">We connect origin with opportunity — sourcing, partnerships, and market access that carry value across borders with clarity and care.</p>
+    <svg class="mark" width="128" height="128" viewBox="0 0 200 200" aria-label="Across Origin mark"><use href="#ao-mark"/></svg>
+    <h1>Ideas from one source, reaching people <em>everywhere</em>.</h1>
+    <p class="sub">From the Source to Every Nation</p>
+    <p class="lead" style="text-align:center;">A publishing-led media and knowledge house. We turn stories, research and learning into content that travels across languages, formats and communities.</p>
     <div class="actions">
-      <a href="#contact" class="btn solid">Start a conversation</a>
-      <a href="#work" class="btn ghost">See what we build</a>
+      <a href="#contact" class="btn solid">Start a project</a>
+      <a href="#brand-kit" class="btn ghost">Open brand kit</a>
     </div>
   </div>
 </header>
 
 <div class="strip">
   <div class="row">
-    <span>Origin Sourcing<span></span>Global Markets<span></span>Venture Partnerships<span></span>Trade Enablement<span></span>Brand &amp; Story<span></span>Market Access</span>
-    <span>Origin Sourcing<span></span>Global Markets<span></span>Venture Partnerships<span></span>Trade Enablement<span></span>Brand &amp; Story<span></span>Market Access</span>
+    <span>Publishing<span></span>Digital Media<span></span>Learning &amp; Training<span></span>Translation<span></span>Communications<span></span>Social Impact</span>
+    <span>Publishing<span></span>Digital Media<span></span>Learning &amp; Training<span></span>Translation<span></span>Communications<span></span>Social Impact</span>
   </div>
 </div>
 
 <section class="block" style="padding-block:var(--sp-6);">
   <div class="wrap stats">
-    <div class="stat r"><div class="fig">1</div><div class="cap">Origin mindset</div></div>
+    <div class="stat r"><div class="fig">1</div><div class="cap">Source mindset</div></div>
     <div class="stat r d1"><div class="fig">∞</div><div class="cap">Nations in reach</div></div>
     <div class="stat r d2"><div class="fig">4</div><div class="cap">Practice pillars</div></div>
-    <div class="stat r d3"><div class="fig">1<em>·</em></div><div class="cap">Standard of trust</div></div>
+    <div class="stat r d3"><div class="fig">1<em>·</em></div><div class="cap">Editorial standard</div></div>
   </div>
 </section>
 
 <section class="block" id="about" style="padding-top:0;">
   <div class="wrap intro">
     <div class="r">
-      <div class="sec-label"><span class="dot"></span><span class="eyebrow">The venture</span></div>
-      <h2>Value should travel as far as it is <em>true</em>.</h2>
+      <div class="sec-label"><span class="dot"></span><span class="eyebrow">The house</span></div>
+      <h2>Knowledge should travel as far as it is <em>true</em>.</h2>
     </div>
     <div class="r d1">
-      <p class="lead">Across Origin exists to move what matters — from the place it begins to the people who need it. We build bridges between source and market, craft and commerce, local strength and global reach.</p>
-      <p class="lead" style="margin-top:18px;">Our name is our promise: stay rooted in origin, move with purpose across every border that value can cross.</p>
+      <p class="lead">Across Origin turns knowledge, stories and ideas into accessible content — books, media, training and translation — that can move across languages, formats and communities without losing its soul.</p>
+      <p class="lead" style="margin-top:18px;">Credible. Thoughtful. Globally minded. Warm, modern, editorial and dependable.</p>
     </div>
   </div>
 </section>
@@ -234,28 +261,28 @@
   <div class="wrap">
     <div class="pillars-head r">
       <div class="sec-label"><span class="dot"></span><span class="eyebrow">The mark</span></div>
-      <h2>A rising <em style="font-style:normal;color:var(--gold);">A</em> under a guiding sun.</h2>
-      <p class="lead" style="margin-top:12px;">The symbol is a doorway and a direction — arched toward the sky, lit by marigold light, carrying rays of progress downward into the work.</p>
+      <h2>An A-frame under a guiding <em style="font-style:normal;color:var(--gold);">origin</em>.</h2>
+      <p class="lead" style="margin-top:12px;">Architectural frame, central source point, outward pathways and a curved global horizon — recognizable in one color, readable at small sizes, free of glow or texture.</p>
     </div>
     <div class="mark-sec">
       <div class="mark-stage r">
-        <svg width="200" height="200" viewBox="0 0 240 240" aria-label="Across Origin mark"><use href="#ao-mark"/></svg>
+        <svg class="mark" width="200" height="200" viewBox="0 0 200 200" aria-label="Across Origin mark"><use href="#ao-mark"/></svg>
       </div>
       <div class="constructs r d1">
         <div class="construct">
-          <div class="k">01 · The arch</div>
-          <h3>The rising A</h3>
-          <p>Two indigo strokes form a gateway — strength, ascent, and the first letter of Across.</p>
+          <div class="k">01 · Origin circle</div>
+          <h3>The source</h3>
+          <p>A flat marigold point — the beginning of an idea, story or message. No glow.</p>
         </div>
         <div class="construct">
-          <div class="k">02 · The sun</div>
-          <h3>Marigold light</h3>
-          <p>A radiant source at the apex: origin, clarity, and the energy that travels outward.</p>
+          <div class="k">02 · A-frame &amp; pathways</div>
+          <h3>Structure and travel</h3>
+          <p>Balanced indigo legs and broad rays — ideas moving outward with intention.</p>
         </div>
         <div class="construct">
-          <div class="k">03 · The rays</div>
-          <h3>Paths of reach</h3>
-          <p>Lines descending through the mark — value moving from source into every market it can serve.</p>
+          <div class="k">03 · Global arc</div>
+          <h3>Connection across nations</h3>
+          <p>A single clean curve suggesting reach across regions — consistent stroke, no segments.</p>
         </div>
       </div>
     </div>
@@ -266,14 +293,14 @@
   <div class="wrap">
     <div class="pillars-head r">
       <div class="sec-label"><span class="dot"></span><span class="eyebrow">What we do</span></div>
-      <h2>Four pillars, one direction.</h2>
-      <p class="lead" style="margin-top:12px;">Each pillar stands alone. Together they take an idea or product from origin to nation-scale presence.</p>
+      <h2>Four pillars, one source standard.</h2>
+      <p class="lead" style="margin-top:12px;">Publishing-led, with room to expand into translation, training, education, communications and social-impact work.</p>
     </div>
     <div class="pillars">
-      <div class="pillar r"><span class="n">01</span><h3>Origin Sourcing</h3><p>Identify, qualify, and elevate products and partners at the source — with standards that travel.</p><ul><li>Supplier discovery</li><li>Quality</li><li>Traceability</li><li>Packaging</li></ul></div>
-      <div class="pillar r d1"><span class="n">02</span><h3>Global Markets</h3><p>Open routes into new geographies with market insight, compliance, and go-to-market craft.</p><ul><li>Market entry</li><li>Distribution</li><li>Compliance</li><li>Localization</li></ul></div>
-      <div class="pillar r d2"><span class="n">03</span><h3>Venture Partnerships</h3><p>Structure alliances, joint ventures, and growth programs that keep intent intact across borders.</p><ul><li>JV design</li><li>Deal support</li><li>Capacity</li><li>Mentoring</li></ul></div>
-      <div class="pillar r d3"><span class="n">04</span><h3>Brand &amp; Story</h3><p>Give origin a voice that nations understand — identity, content, and campaigns with one standard.</p><ul><li>Identity</li><li>Content</li><li>Campaigns</li><li>Collateral</li></ul></div>
+      <div class="pillar r"><span class="n">01</span><h3>Publishing</h3><p>Books, journals, research and manuals across print, e-book and audio.</p><ul><li>Commissioning</li><li>Editing</li><li>Design</li><li>Distribution</li></ul></div>
+      <div class="pillar r d1"><span class="n">02</span><h3>Digital Media</h3><p>Content, branding, video and campaigns for institutions and enterprises.</p><ul><li>Branding</li><li>Video</li><li>Social</li><li>Campaigns</li></ul></div>
+      <div class="pillar r d2"><span class="n">03</span><h3>Learning &amp; Training</h3><p>Workshops, curricula and capacity-building that carry ideas into practice.</p><ul><li>Workshops</li><li>Curriculum</li><li>Coaching</li><li>LMS</li></ul></div>
+      <div class="pillar r d3"><span class="n">04</span><h3>Translation</h3><p>Localization across legal, medical, technical and literary work — one voice, many languages.</p><ul><li>Translation</li><li>Localization</li><li>Subtitling</li><li>Transcription</li></ul></div>
     </div>
   </div>
 </section>
@@ -283,21 +310,67 @@
   <div class="wrap">
     <div class="inner r">
       <span class="eyebrow">Why Across Origin</span>
-      <h2>Rooted in <em>source</em>. Built for <em>reach</em>.</h2>
-      <p>Most partners do one half of the journey. We hold both — the integrity of origin and the ambition of every nation it can serve.</p>
+      <h2>From the <em>source</em> to every <em>nation</em>.</h2>
+      <p>Most houses do one half of the journey. We hold both — the integrity of origin and the ambition of reach — so a body of work still feels whole when it travels.</p>
     </div>
   </div>
 </section>
 
-<section class="block" id="services">
+<!-- BRAND KIT -->
+<section class="block" id="brand-kit">
+  <div class="wrap">
+    <div class="pillars-head r">
+      <div class="sec-label"><span class="dot"></span><span class="eyebrow">Brand kit · v2.0</span></div>
+      <h2>Identity system for teams and partners.</h2>
+      <p class="lead" style="margin-top:12px;">Logo, color, type, spacing and applications — open the full guidelines or use the essentials below.</p>
+    </div>
+
+    <div class="kit-grid" style="margin-bottom:var(--sp-5);">
+      <a class="kit-card r" href="brand-kit.html">
+        <svg class="ico mark" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
+        <h3>Full brand kit</h3>
+        <p>Complete V2.0 guidelines: construction, clear space, variants, type, print and digital exports.</p>
+        <span class="go">Open brand kit →</span>
+      </a>
+      <a class="kit-card r d1" href="mark.svg" download>
+        <svg class="ico mark" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
+        <h3>Mark SVG</h3>
+        <p>Master symbol for web and production. Prefer SVG; do not enlarge a small PNG for print.</p>
+        <span class="go">Download SVG →</span>
+      </a>
+      <a class="kit-card r d2" href="favicon.svg" download>
+        <svg class="ico mark" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
+        <h3>Favicon</h3>
+        <p>Symbol-only icon for browser tabs and app tiles. Test at 16–32 px.</p>
+        <span class="go">Download favicon →</span>
+      </a>
+    </div>
+
+    <div class="sec-label r"><span class="dot"></span><span class="eyebrow">Palette</span></div>
+    <div class="swatches r d1">
+      <div class="sw"><div class="chip" style="background:#14267B"></div><div class="m"><div class="nm">Deep Indigo</div><div class="vl">#14267B · RGB 20,38,123</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F4A22A"></div><div class="m"><div class="nm">Marigold Gold</div><div class="vl">#F4A22A · RGB 244,162,42</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F3F5FA;border-bottom:1px solid var(--line)"></div><div class="m"><div class="nm">Light Neutral</div><div class="vl">#F3F5FA</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1F2937"></div><div class="m"><div class="nm">Charcoal</div><div class="vl">#1F2937 · body text</div></div></div>
+    </div>
+
+    <p class="lead r d2" style="margin-top:var(--sp-4);">
+      <strong style="color:var(--indigo);font-family:var(--font-display);">Type:</strong>
+      Montserrat (headings) · Inter (body / UI) · Lora (tagline / editorial).
+      Layout ratio guide: 65–75% light, 20–30% indigo, up to 5–10% gold.
+    </p>
+  </div>
+</section>
+
+<section class="block" id="services" style="padding-top:0;">
   <div class="wrap">
     <div class="sec-label r"><span class="dot"></span><span class="eyebrow">Engagements</span></div>
     <div class="svc">
-      <div class="item r"><span class="num">A</span><h3>Sourcing programs</h3><p>End-to-end origin discovery, vetting, and export readiness.</p></div>
-      <div class="item r d1"><span class="num">B</span><h3>Market access</h3><p>Entry strategy, partners, and launch support across regions.</p></div>
-      <div class="item r d2"><span class="num">C</span><h3>Venture structuring</h3><p>Partnership models, JV frameworks, and growth playbooks.</p></div>
-      <div class="item r d3"><span class="num">D</span><h3>Brand systems</h3><p>Identity, messaging, and multilingual brand assets.</p></div>
-      <div class="item r d4"><span class="num">E</span><h3>Trade enablement</h3><p>Documentation, compliance guidance, and operational handoffs.</p></div>
+      <div class="item r"><span class="num">A</span><h3>Editorial &amp; Publishing</h3><p>Commissioning, editing, design, print and distribution.</p></div>
+      <div class="item r d1"><span class="num">B</span><h3>Brand &amp; Content</h3><p>Identity, campaigns, video and multimedia.</p></div>
+      <div class="item r d2"><span class="num">C</span><h3>Learning Programs</h3><p>Training, workshops and capacity-building.</p></div>
+      <div class="item r d3"><span class="num">D</span><h3>Translation &amp; Localization</h3><p>Multilingual work for regulated and literary content.</p></div>
+      <div class="item r d4"><span class="num">E</span><h3>Communications</h3><p>Institutional storytelling and social-impact media.</p></div>
     </div>
   </div>
 </section>
@@ -309,10 +382,10 @@
       <h2>From source to scale.</h2>
     </div>
     <div class="process">
-      <div class="pstep r"><div class="k">Step 01</div><h4>Discover</h4><p>Map the origin, the audience, and the true value that should travel.</p></div>
-      <div class="pstep r d1"><div class="k">Step 02</div><h4>Shape</h4><p>Align product, story, and partnership structure to one standard.</p></div>
-      <div class="pstep r d2"><div class="k">Step 03</div><h4>Launch</h4><p>Open markets with the right partners, routes, and brand presence.</p></div>
-      <div class="pstep r d3"><div class="k">Step 04</div><h4>Expand</h4><p>Carry the same integrity into every next nation and channel.</p></div>
+      <div class="pstep r"><div class="k">Step 01</div><h4>Listen</h4><p>Start with the idea and the audience — what must endure?</p></div>
+      <div class="pstep r d1"><div class="k">Step 02</div><h4>Shape</h4><p>Editorial, design and strategy give the idea its form.</p></div>
+      <div class="pstep r d2"><div class="k">Step 03</div><h4>Produce</h4><p>Publish, film, translate or build — one craft standard.</p></div>
+      <div class="pstep r d3"><div class="k">Step 04</div><h4>Carry forward</h4><p>Help it reach people and keep working after launch.</p></div>
     </div>
   </div>
 </section>
@@ -320,7 +393,7 @@
 <section class="block final" id="contact" style="padding-top:0;">
   <div class="wrap r">
     <div class="sec-label" style="justify-content:center;"><span class="dot"></span><span class="eyebrow">Let's begin</span></div>
-    <h2>Have something worth carrying <em>across</em>?</h2>
+    <h2>Have an idea worth carrying <em>across</em>?</h2>
     <p class="lead" style="margin:0 auto 28px;text-align:center;">Tell us what you’re building at the source. We’ll help it travel.</p>
     <a href="mailto:hello@acrossorigin.com" class="btn solid">hello@acrossorigin.com</a>
   </div>
@@ -329,21 +402,25 @@
 <footer>
   <div class="wrap cols">
     <div>
-      <div class="wm">Across <span>Origin</span></div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <svg class="mark" width="40" height="40" viewBox="0 0 200 200" aria-hidden="true"><use href="#ao-mark"/></svg>
+        <div class="wm">Across <span>Origin</span></div>
+      </div>
       <div class="tag">From the Source to Every Nation</div>
-      <div class="fine">Across Origin Venture Private Limited<br>India · 2026</div>
+      <div class="fine">Across Origin Venture Private Limited<br>Brand Guidelines v2.0 · 17 October 2026</div>
     </div>
     <div class="fcol">
       <h4>Explore</h4>
       <a href="#about">About</a>
       <a href="#mark">The mark</a>
       <a href="#work">Pillars</a>
-      <a href="#services">Services</a>
+      <a href="#brand-kit">Brand kit</a>
     </div>
     <div class="fcol">
-      <h4>Contact</h4>
+      <h4>Assets</h4>
+      <a href="brand-kit.html">Full guidelines</a>
+      <a href="mark.svg" download>Mark SVG</a>
       <a href="mailto:hello@acrossorigin.com">hello@acrossorigin.com</a>
-      <a href="#contact">Start a conversation</a>
     </div>
   </div>
 </footer>

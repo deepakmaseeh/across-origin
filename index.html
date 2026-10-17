@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Across Origin — From the Source to Every Nation</title>
-<link rel="icon" href="/favicon.png?v=3" type="image/png" sizes="32x32">
-<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="icon" href="/favicon.png?v=4" type="image/png" sizes="32x32">
+<link rel="icon" href="/favicon-tile.png?v=4" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
@@ -43,9 +43,11 @@
   .sec-label { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
   .sec-label .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
 
-  /* Mark color helper */
-  .mark { color: var(--indigo); }
-  .mark-light { color: #F3F5FA; }
+  .logo-mark { display: block; height: auto; object-fit: contain; }
+  nav .brand img.logo-mark { width: 40px; height: 40px; }
+  .hero-logo { width: min(280px, 72vw); height: auto; }
+  .hero-lockup { width: min(420px, 88vw); height: auto; margin-top: 4px; }
+  .mark-photo { width: min(280px, 70vw); height: auto; }
 
   nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--neutral) 90%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
   nav .bar { max-width: 1160px; margin: 0 auto; padding: 12px var(--sp-4); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -168,39 +170,10 @@
 </head>
 <body>
 
-<!-- Shared mark symbol -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="ao-mark" viewBox="0 0 200 200" fill="none">
-    <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
-      <path d="M100 58 L100 148" stroke-width="7.5"/>
-      <path d="M100 60 L74 152" stroke-width="7"/>
-      <path d="M100 60 L126 152" stroke-width="7"/>
-      <path d="M100 64 L54 158" stroke-width="6.5"/>
-      <path d="M100 64 L146 158" stroke-width="6.5"/>
-      <path d="M100 52 C78 78 52 118 34 178" stroke-width="14"/>
-      <path d="M100 52 C122 78 148 118 166 178" stroke-width="14"/>
-      <path d="M48 118 C72 132 128 132 152 118" stroke-width="5.5"/>
-    </g>
-    <g transform="translate(100 38)">
-      <g fill="#F4A22A">
-        <polygon points="0,-28 3.2,-16 -3.2,-16"/>
-        <polygon points="0,28 3.2,16 -3.2,16"/>
-        <polygon points="-28,0 -16,3.2 -16,-3.2"/>
-        <polygon points="28,0 16,3.2 16,-3.2"/>
-        <polygon points="-19.8,-19.8 -9.5,-14.2 -14.2,-9.5"/>
-        <polygon points="19.8,-19.8 9.5,-14.2 14.2,-9.5"/>
-        <polygon points="-19.8,19.8 -14.2,9.5 -9.5,14.2"/>
-        <polygon points="19.8,19.8 14.2,9.5 9.5,14.2"/>
-      </g>
-      <circle r="12" fill="#F4A22A"/>
-    </g>
-  </symbol>
-</svg>
-
 <nav>
   <div class="bar">
     <a class="brand" href="#">
-      <svg class="mark" width="36" height="36" viewBox="0 0 200 200" aria-hidden="true"><use href="#ao-mark"/></svg>
+      <img class="logo-mark" src="/assets/logo-mark.png" width="40" height="40" alt="Across Origin mark">
       <span class="wm">Across <span>Origin</span></span>
     </a>
     <div class="links">
@@ -217,10 +190,9 @@
 <header class="hero">
   <div class="glow"></div>
   <div class="inner">
-    <svg class="mark" width="128" height="128" viewBox="0 0 200 200" aria-label="Across Origin mark"><use href="#ao-mark"/></svg>
+    <img class="hero-lockup" src="/assets/logo-full-lockup.png" alt="Across Origin Venture Private Limited — From the Source to Every Nation">
     <h1>Ideas from one source, reaching people <em>everywhere</em>.</h1>
-    <p class="sub">From the Source to Every Nation</p>
-    <p class="lead" style="text-align:center;">A publishing-led media and knowledge house. We turn stories, research and learning into content that travels across languages, formats and communities.</p>
+    <p class="lead" style="text-align:center;">Across Origin turns knowledge, stories and ideas into accessible content that can travel across languages, formats and communities. A publishing-led media and knowledge house — credible, thoughtful, globally minded, warm, modern, editorial and dependable.</p>
     <div class="actions">
       <a href="#contact" class="btn solid">Start a project</a>
       <a href="#brand-kit" class="btn ghost">Open brand kit</a>
@@ -266,7 +238,7 @@
     </div>
     <div class="mark-sec">
       <div class="mark-stage r">
-        <svg class="mark" width="200" height="200" viewBox="0 0 200 200" aria-label="Across Origin mark"><use href="#ao-mark"/></svg>
+        <img class="mark-photo" src="/assets/logo-mark.png" alt="Across Origin mark — origin sun, pathways, global arc">
       </div>
       <div class="constructs r d1">
         <div class="construct">
@@ -327,22 +299,22 @@
 
     <div class="kit-grid" style="margin-bottom:var(--sp-5);">
       <a class="kit-card r" href="brand-kit.html">
-        <svg class="ico mark" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
+        <img class="ico logo-mark" src="/assets/logo-mark.png" alt="" width="56" height="56">
         <h3>Full brand kit</h3>
         <p>Complete V2.0 guidelines: construction, clear space, variants, type, print and digital exports.</p>
         <span class="go">Open brand kit →</span>
       </a>
-      <a class="kit-card r d1" href="mark.svg" download>
-        <svg class="ico mark" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
-        <h3>Mark SVG</h3>
-        <p>Master symbol for web and production. Prefer SVG; do not enlarge a small PNG for print.</p>
-        <span class="go">Download SVG →</span>
+      <a class="kit-card r d1" href="/assets/logo-mark.png" download>
+        <img class="ico logo-mark" src="/assets/logo-mark.png" alt="" width="56" height="56">
+        <h3>Logo mark</h3>
+        <p>Official emblem PNG (transparent). Use for web, social and presentations.</p>
+        <span class="go">Download mark →</span>
       </a>
-      <a class="kit-card r d2" href="favicon.svg" download>
-        <svg class="ico mark" viewBox="0 0 200 200"><use href="#ao-mark"/></svg>
-        <h3>Favicon</h3>
-        <p>Symbol-only icon for browser tabs and app tiles. Test at 16–32 px.</p>
-        <span class="go">Download favicon →</span>
+      <a class="kit-card r d2" href="/assets/logo-full-lockup.png" download>
+        <img class="ico logo-mark" src="/assets/logo-mark.png" alt="" width="56" height="56">
+        <h3>Full lockup</h3>
+        <p>Mark + Across Origin + Venture Private Limited + tagline.</p>
+        <span class="go">Download lockup →</span>
       </a>
     </div>
 
@@ -403,7 +375,7 @@
   <div class="wrap cols">
     <div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-        <svg class="mark" width="40" height="40" viewBox="0 0 200 200" aria-hidden="true"><use href="#ao-mark"/></svg>
+        <img class="logo-mark" src="/assets/logo-mark.png" width="44" height="44" alt="">
         <div class="wm">Across <span>Origin</span></div>
       </div>
       <div class="tag">From the Source to Every Nation</div>
@@ -418,8 +390,8 @@
     </div>
     <div class="fcol">
       <h4>Assets</h4>
-      <a href="brand-kit.html">Full guidelines</a>
-      <a href="mark.svg" download>Mark SVG</a>
+        <a href="brand-kit.html">Full guidelines</a>
+      <a href="/assets/logo-mark.png" download>Logo mark</a>
       <a href="mailto:hello@acrossorigin.com">hello@acrossorigin.com</a>
     </div>
   </div>

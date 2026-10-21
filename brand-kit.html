@@ -3,339 +3,1100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Across Origin ? Brand Kit</title>
+<title>Across Origin — Brand Kit &amp; Identity Guidelines</title>
 <link rel="icon" href="/favicon.png?v=6" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=6">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --indigo: #14267B; --gold: #F4A22A; --neutral: #F3F5FA; --charcoal: #1F2937;
-    --white: #fff; --muted: #5b6472; --line: #d8dee9;
-    --display: Montserrat, system-ui, sans-serif; --serif: Lora, Georgia, serif; --body: Inter, system-ui, sans-serif;
+    --indigo: #14267B;
+    --indigo-hover: #1f349c;
+    --indigo-soft: #2a3d9a;
+    --gold: #F4A22A;
+    --gold-hover: #df8c17;
+    --neutral: #F3F5FA;
+    --neutral-card: #f8fafc;
+    --charcoal: #1F2937;
+    --white: #ffffff;
+    --muted: #5b6472;
+    --line: #d8dee9;
+    --line-focus: #14267B;
+    --display: "Montserrat", system-ui, sans-serif;
+    --serif: "Lora", Georgia, serif;
+    --body: "Inter", system-ui, sans-serif;
+    --mono: "Fira Code", monospace;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --shadow-sm: 0 2px 6px rgba(20, 38, 123, 0.04);
+    --shadow-md: 0 8px 24px rgba(20, 38, 123, 0.08);
+    --shadow-lg: 0 16px 36px rgba(20, 38, 123, 0.12);
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: var(--neutral); color: var(--charcoal); font-family: var(--body); line-height: 1.6; }
-  a { color: var(--indigo); text-decoration: none; }
+  a { color: var(--indigo); text-decoration: none; transition: color .2s ease; }
   a:hover { color: var(--gold); }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
-  .label { font-family: var(--display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
-  h1, h2, h3 { font-family: var(--display); color: var(--indigo); letter-spacing: -0.02em; text-wrap: balance; }
-  h1 { font-weight: 700; font-size: clamp(2rem, 4vw, 2.8rem); }
-  h2 { font-weight: 600; font-size: 1.5rem; margin: 0 0 12px; }
-  h3 { font-weight: 600; font-size: 1.05rem; margin-bottom: 6px; }
+
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+  .label { font-family: var(--display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  h1, h2, h3, h4 { font-family: var(--display); color: var(--indigo); letter-spacing: -0.02em; text-wrap: balance; }
+  h1 { font-weight: 700; font-size: clamp(2.1rem, 4.2vw, 3rem); line-height: 1.15; }
+  h2 { font-weight: 700; font-size: 1.65rem; margin: 0 0 10px; display: flex; align-items: center; gap: 10px; }
+  h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 6px; }
   p { color: var(--muted); font-size: 0.95rem; }
-  .topbar { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 30; }
-  .topbar .inner { max-width: 1120px; margin: 0 auto; padding: 12px 28px; display: flex; justify-content: space-between; align-items: center; }
-  .topbar .brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; color: var(--indigo); }
+
+  /* Top Navigation */
+  .topbar { background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 40; }
+  .topbar .inner { max-width: 1160px; margin: 0 auto; padding: 14px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .topbar .brand { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; font-size: 1.05rem; color: var(--indigo); }
   .topbar .brand span { color: var(--gold); }
-  .topbar .back { font-family: var(--display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .topbar-actions { display: flex; align-items: center; gap: 16px; }
+  .topbar .back { font-family: var(--display); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; background: var(--neutral); border: 1px solid var(--line); }
+  .topbar .back:hover { background: var(--white); border-color: var(--indigo); color: var(--indigo); }
+
+  /* Header & TOC */
   .hero { padding: 56px 0 32px; }
-  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-  .toc a { font-family: var(--display); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--line); background: var(--white); padding: 8px 12px; border-radius: 999px; color: var(--indigo); }
-  .toc a:hover { border-color: var(--gold); color: var(--gold); }
-  section.block { padding: 48px 0; border-top: 1px solid var(--line); }
-  .board { width: 100%; border-radius: 12px; border: 1px solid var(--line); display: block; background: var(--white); }
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .grid7 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+  .hero-sub { max-width: 62ch; margin-top: 10px; font-size: 1.05rem; color: var(--muted); }
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .toc a { font-family: var(--display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--line); background: var(--white); padding: 8px 14px; border-radius: 999px; color: var(--indigo); box-shadow: var(--shadow-sm); transition: all .2s ease; }
+  .toc a:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+
+  section.block { padding: 56px 0; border-top: 1px solid var(--line); }
+  .sec-desc { margin-bottom: 22px; max-width: 72ch; }
+
+  /* General Cards & Layout */
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  .card:hover { border-color: rgba(20, 38, 123, 0.25); }
   .card.center { text-align: center; }
-  .card.ink { background: var(--indigo); }
-  .card.dark { background: #111; }
-  .card.gold { background: var(--gold); }
-  .sw .chip { height: 110px; border-radius: 10px 10px 0 0; }
-  .sw { background: var(--white); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-  .sw .m { padding: 14px; }
-  .sw .nm { font-family: var(--display); font-weight: 700; color: var(--indigo); font-size: 0.95rem; }
-  .sw .vl { font-family: var(--display); font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
-  .sw .meaning { font-size: 0.8rem; color: var(--charcoal); margin-top: 8px; }
-  .type-sample .big { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--indigo); line-height: 1.1; }
-  .type-sample .serif { font-family: var(--serif); font-style: italic; font-size: 1.35rem; color: var(--indigo); margin-top: 10px; }
-  .type-sample .body { margin-top: 14px; }
-  .logo-img { max-width: 100%; width: auto; height: auto; display: block; margin: 0 auto; object-fit: contain; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .grid7 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+  /* Styleboards & Lightbox Triggers */
+  .board-wrap { position: relative; cursor: zoom-in; overflow: hidden; border-radius: var(--radius-md); border: 1px solid var(--line); background: var(--white); }
+  .board-wrap img { width: 100%; display: block; transition: transform .3s ease; }
+  .board-wrap:hover img { transform: scale(1.015); }
+  .board-badge { position: absolute; bottom: 12px; right: 12px; background: rgba(20, 38, 123, 0.88); color: #fff; font-family: var(--display); font-size: 0.7rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; backdrop-filter: blur(4px); display: flex; align-items: center; gap: 6px; pointer-events: none; }
+
+  /* Interactive Color Swatches */
+  .sw { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); position: relative; transition: all .25s ease; cursor: pointer; }
+  .sw:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+  .sw .chip { height: 116px; position: relative; display: flex; align-items: flex-end; justify-content: flex-end; padding: 10px; }
+  .sw .chip-copy-hint { background: rgba(0, 0, 0, 0.65); color: #fff; font-family: var(--mono); font-size: 0.68rem; padding: 4px 8px; border-radius: 4px; opacity: 0; transform: translateY(4px); transition: all .2s ease; backdrop-filter: blur(4px); }
+  .sw:hover .chip-copy-hint { opacity: 1; transform: none; }
+  .sw .m { padding: 16px; }
+  .sw .nm { font-family: var(--display); font-weight: 700; color: var(--indigo); font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .sw .vl { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .sw .meaning { font-size: 0.82rem; color: var(--charcoal); margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); }
+  .sw .wcag-tag { display: inline-block; font-family: var(--display); font-size: 0.62rem; font-weight: 700; padding: 3px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 8px; }
+  .wcag-aaa { background: #dcfce7; color: #166534; }
+  .wcag-aa { background: #fef3c7; color: #92400e; }
+
+  /* Quick Dev Export Bar */
+  .dev-bar { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 16px 20px; margin-top: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+  .dev-bar-title { font-family: var(--display); font-size: 0.82rem; font-weight: 600; color: var(--indigo); display: flex; align-items: center; gap: 8px; }
+  .dev-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-dev { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; background: var(--neutral); border: 1px solid var(--line); padding: 8px 14px; border-radius: var(--radius-sm); cursor: pointer; color: var(--indigo); transition: all .2s; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-dev:hover { background: var(--indigo); color: var(--white); border-color: var(--indigo); }
+
+  /* Logo Presentation & Interactive Stage */
+  .logo-stage-box { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .stage-controls { padding: 12px 20px; background: #fafbfd; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .stage-theme-picker { display: flex; align-items: center; gap: 8px; }
+  .theme-btn { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform .15s, border-color .15s; outline: none; }
+  .theme-btn:hover { transform: scale(1.1); }
+  .theme-btn.active { border-color: var(--indigo); box-shadow: 0 0 0 2px rgba(20,38,123,0.3); }
+  .theme-light { background: #ffffff; border: 1px solid #ccc; }
+  .theme-neutral { background: #F3F5FA; border: 1px solid #ccc; }
+  .theme-indigo { background: #14267B; }
+  .theme-black { background: #111111; }
+  .theme-gold { background: #F4A22A; }
+  .stage-viewport { min-height: 280px; display: grid; place-items: center; padding: 40px 24px; transition: background .3s ease; text-align: center; }
+  .stage-viewport img { max-width: 100%; height: auto; max-height: 220px; object-fit: contain; }
+  .stage-actions { padding: 14px 20px; border-top: 1px solid var(--line); background: #fafbfd; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+
+  /* Logo Variations Grid */
   .var-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .var { border: 1px solid var(--line); border-radius: 12px; padding: 28px 16px; text-align: center; background: var(--white); min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-  .var img { width: auto !important; height: auto !important; max-width: 110px; max-height: 110px; object-fit: contain; object-position: center; }
-  .app-ico img, .fav-row img { width: auto !important; height: auto !important; max-width: 48px; max-height: 48px; object-fit: contain; }
-  .fav-row img.s16 { max-width: 16px; max-height: 16px; }
-  .fav-row img.s32 { max-width: 32px; max-height: 32px; }
-  .fav-row img.s48 { max-width: 48px; max-height: 48px; }
-  .var.ink { background: var(--indigo); }
-  .var.dark { background: #111; }
-  .var .cap { font-family: var(--display); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-  .var.ink .cap, .var.dark .cap { color: rgba(255,255,255,0.7); }
-  .element { text-align: center; padding: 22px 14px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; }
-  .element svg { width: 48px; height: 48px; margin-bottom: 12px; }
-  .element .t { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--indigo); }
+  .var { border: 1px solid var(--line); border-radius: var(--radius-md); padding: 28px 16px; text-align: center; background: var(--white); min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; box-shadow: var(--shadow-sm); transition: transform .2s ease; }
+  .var:hover { transform: translateY(-2px); }
+  .var img { width: auto; height: auto; max-width: 96px; max-height: 96px; object-fit: contain; }
+  .var.ink { background: var(--indigo); border-color: var(--indigo); }
+  .var.dark { background: #111111; border-color: #222; }
+  .var.gold { background: var(--gold); border-color: var(--gold); }
+  .var .cap { font-family: var(--display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .var.ink .cap, .var.dark .cap { color: rgba(255,255,255,0.8); }
+  .var.gold .cap { color: rgba(20,38,123,0.9); }
+
+  /* Interactive Elements / Service Icons */
+  .element { text-align: center; padding: 22px 14px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); cursor: pointer; transition: all .2s ease; position: relative; }
+  .element:hover { border-color: var(--indigo); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .element svg { width: 48px; height: 48px; margin-bottom: 12px; transition: transform .2s; }
+  .element:hover svg { transform: scale(1.08); }
+  .element .t { font-family: var(--display); font-weight: 600; font-size: 0.86rem; color: var(--indigo); }
+  .element .el-hint { font-family: var(--display); font-size: 0.65rem; color: var(--gold); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; opacity: 0; transition: opacity .2s; }
+  .element:hover .el-hint { opacity: 1; }
+
+  /* Typography Playground */
+  .type-playground { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); margin-top: 20px; }
+  .type-controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding-bottom: 18px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .type-btn-group { display: flex; gap: 6px; background: var(--neutral); padding: 4px; border-radius: var(--radius-sm); border: 1px solid var(--line); }
+  .type-btn { border: none; background: transparent; padding: 6px 12px; font-family: var(--display); font-size: 0.72rem; font-weight: 600; border-radius: 6px; cursor: pointer; color: var(--charcoal); transition: all .2s; }
+  .type-btn.active { background: var(--indigo); color: #fff; }
+  .size-slider-wrap { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+  .size-slider { accent-color: var(--indigo); cursor: pointer; }
+  .type-output { min-height: 120px; border: 1px dashed var(--line); border-radius: var(--radius-sm); padding: 20px; background: #fafbfd; outline: none; transition: border-color .2s; }
+  .type-output:focus { border-color: var(--indigo); background: #fff; }
+
+  /* Apps & Mockups */
   .apps { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
-  .apps img { width: 100%; border-radius: 12px; border: 1px solid var(--line); display: block; }
-  .note { background: #eef2fb; border-left: 3px solid var(--gold); padding: 14px 16px; border-radius: 0 8px 8px 0; margin-top: 18px; font-size: 0.88rem; color: var(--charcoal); }
-  .rule-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
-  footer { padding: 40px 0 72px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); }
+  .apps .app-img-wrap { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--line); cursor: zoom-in; }
+  .apps img { width: 100%; display: block; transition: transform .3s; }
+  .apps .app-img-wrap:hover img { transform: scale(1.02); }
+
+  /* Download Cards */
+  .dl-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; transition: all .2s; }
+  .dl-card:hover { border-color: var(--indigo); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .dl-card h3 { color: var(--indigo); }
+  .dl-card .btn-dl { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; font-family: var(--display); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--indigo); color: var(--white); padding: 10px 16px; border-radius: var(--radius-sm); transition: background .2s; }
+  .dl-card .btn-dl:hover { background: var(--gold); color: var(--charcoal); }
+
+  .note { background: #eef2fb; border-left: 3px solid var(--gold); padding: 14px 18px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-top: 20px; font-size: 0.9rem; color: var(--charcoal); }
+
+  /* Lightbox Modal */
+  .ao-lightbox { position: fixed; inset: 0; background: rgba(10, 15, 35, 0.92); backdrop-filter: blur(8px); z-index: 100; display: none; flex-direction: column; padding: 20px; }
+  .ao-lightbox.open { display: flex; animation: fadeIn .2s ease; }
+  .lb-header { display: flex; justify-content: space-between; align-items: center; color: #fff; padding-bottom: 12px; }
+  .lb-title { font-family: var(--display); font-size: 1rem; font-weight: 700; }
+  .lb-actions { display: flex; align-items: center; gap: 12px; }
+  .lb-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 8px 14px; border-radius: 999px; cursor: pointer; font-family: var(--display); font-size: 0.74rem; font-weight: 600; transition: background .2s; }
+  .lb-btn:hover { background: rgba(255,255,255,0.3); }
+  .lb-content { flex: 1; display: grid; place-items: center; overflow: auto; padding: 10px; }
+  .lb-content img { max-width: 95%; max-height: 84vh; object-fit: contain; border-radius: var(--radius-sm); box-shadow: 0 20px 50px rgba(0,0,0,0.5); transition: transform .2s ease; }
+  .lb-content img.zoomed { max-width: none; max-height: none; transform: scale(1.5); cursor: zoom-out; }
+  .lb-footer { text-align: center; color: rgba(255,255,255,0.65); font-size: 0.78rem; font-family: var(--display); padding-top: 10px; }
+
+  /* Toast Notification */
+  .ao-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #14267B; color: #fff; padding: 12px 24px; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); font-family: var(--display); font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 10px; z-index: 200; opacity: 0; pointer-events: none; transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1), opacity .3s ease; border: 1px solid var(--gold); }
+  .ao-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .ao-toast svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+
+  footer { padding: 48px 0 80px; color: var(--muted); font-size: 0.88rem; border-top: 1px solid var(--line); }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  html, body { overflow-x: hidden; width: 100%; max-width: 100vw; }
+
   @media (max-width: 900px) {
-    .grid2, .grid3, .grid4, .grid7, .var-grid, .apps, .rule-row { grid-template-columns: 1fr 1fr; }
+    .grid2, .grid3, .apps, .rule-row { grid-template-columns: 1fr 1fr; }
+    .grid4 { grid-template-columns: repeat(2, 1fr); }
+    .grid7 { grid-template-columns: repeat(2, 1fr); }
+    .var-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 560px) {
-    .grid2, .grid3, .grid4, .grid7, .var-grid, .apps, .rule-row { grid-template-columns: 1fr; }
+
+  @media (max-width: 768px) {
+    .toc {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 6px;
+      margin-top: 18px;
+      margin-inline: -16px;
+      padding-inline: 16px;
+    }
+    .toc::-webkit-scrollbar { display: none; }
+    .toc a { flex-shrink: 0; white-space: nowrap; font-size: 0.65rem; padding: 7px 12px; }
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .topbar .inner { padding: 10px 16px; }
+    .topbar .brand { font-size: 0.95rem; gap: 8px; }
+    .topbar .brand img { width: 24px; height: 24px; }
+    .topbar .back { font-size: 0.68rem; padding: 6px 12px; }
+
+    .hero { padding: 32px 0 20px; }
+    .hero h1 { font-size: 1.75rem; line-height: 1.2; }
+    .hero-sub { font-size: 0.92rem; }
+
+    section.block { padding: 36px 0; }
+    h2 { font-size: 1.32rem; margin-bottom: 6px; }
+    .sec-desc { font-size: 0.88rem; margin-bottom: 16px; }
+    .card { padding: 16px; border-radius: 10px; }
+
+    /* Minimalist 2x2 Color Swatch Grid */
+    .grid4 { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sw { border-radius: 10px; }
+    .sw .chip { height: 60px; padding: 6px; }
+    .sw .m { padding: 10px 12px; }
+    .sw .nm { font-size: 0.84rem; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .sw .vl { font-size: 0.64rem; line-height: 1.35; margin-top: 4px; }
+    .sw .meaning { display: none; }
+
+    /* Developer Token Export Bar */
+    .dev-bar { padding: 14px; flex-direction: column; align-items: stretch; gap: 10px; }
+    .dev-buttons { flex-direction: column; gap: 8px; }
+    .btn-dev { justify-content: center; width: 100%; padding: 10px 14px; }
+
+    /* Logo Stage & Variations */
+    .stage-viewport { min-height: 160px; padding: 20px 14px; }
+    .stage-viewport img { max-height: 120px; }
+    .stage-controls { padding: 10px 14px; }
+    .stage-actions { padding: 12px 14px; flex-direction: column; align-items: stretch; gap: 8px; }
+    .stage-actions .btn-dev { justify-content: center; width: 100%; }
+
+    .var-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .var { min-height: 130px; padding: 16px 10px; gap: 10px; border-radius: 10px; }
+    .var img { max-width: 64px; max-height: 64px; }
+    .var .cap { font-size: 0.64rem; }
+
+    /* Service Elements Grid */
+    .grid7 { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .element { padding: 14px 10px; border-radius: 10px; }
+    .element svg { width: 32px; height: 32px; margin-bottom: 6px; }
+    .element .t { font-size: 0.78rem; }
+    .element .el-hint { font-size: 0.6rem; }
+
+    /* Typography Playground */
+    .type-playground { padding: 16px; margin-top: 14px; border-radius: 10px; }
+    .type-controls { flex-direction: column; align-items: stretch; gap: 12px; padding-bottom: 14px; margin-bottom: 14px; }
+    .type-btn-group { justify-content: center; flex-wrap: wrap; }
+    .size-slider-wrap { justify-content: space-between; }
+    .type-output { font-size: 22px !important; min-height: 80px; padding: 12px; }
+
+    /* Applications & Styleboards */
+    .grid2, .grid3, .apps, .rule-row { grid-template-columns: 1fr; gap: 12px; }
+
+    /* Lightbox Modal */
+    .ao-lightbox { padding: 12px; }
+    .lb-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .lb-actions { width: 100%; justify-content: space-between; }
+    .lb-btn { padding: 6px 10px; font-size: 0.7rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- SVG Vector Symbol Definition for 1-click Export -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ao-mark-symbol" viewBox="0 0 200 200" fill="none">
+    <g stroke="#14267B" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 58 L100 148" stroke-width="7.5"/>
+      <path d="M100 60 L74 152" stroke-width="7"/>
+      <path d="M100 60 L126 152" stroke-width="7"/>
+      <path d="M100 64 L54 158" stroke-width="6.5"/>
+      <path d="M100 64 L146 158" stroke-width="6.5"/>
+    </g>
+    <path d="M100 52 C78 78 52 118 34 178" stroke="#14267B" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M100 52 C122 78 148 118 166 178" stroke="#14267B" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M48 118 C72 132 128 132 152 118" stroke="#14267B" stroke-width="5.5" stroke-linecap="round"/>
+    <g transform="translate(100 38)">
+      <g fill="#F4A22A">
+        <polygon points="0,-28 3.2,-16 -3.2,-16"/>
+        <polygon points="0,28 3.2,16 -3.2,16"/>
+        <polygon points="-28,0 -16,3.2 -16,-3.2"/>
+        <polygon points="28,0 16,3.2 16,-3.2"/>
+        <polygon points="-19.8,-19.8 -9.5,-14.2 -14.2,-9.5"/>
+        <polygon points="19.8,-19.8 9.5,-14.2 14.2,-9.5"/>
+        <polygon points="-19.8,19.8 -14.2,9.5 -9.5,14.2"/>
+        <polygon points="19.8,19.8 14.2,9.5 9.5,14.2"/>
+      </g>
+      <circle r="12" fill="#F4A22A"/>
+    </g>
+  </symbol>
+</svg>
+
 <div class="topbar">
   <div class="inner">
     <a class="brand" href="index.html">
-      <img src="/assets/logo-mark.png?v=6" width="28" height="28" alt="">
+      <img src="/assets/logo-mark.png?v=6" width="30" height="30" alt="Across Origin mark">
       Across <span>Origin</span>
     </a>
-    <a class="back" href="index.html">? Back to site</a>
+    <div class="topbar-actions">
+      <a class="back" href="index.html">&larr; Back to site</a>
+    </div>
   </div>
 </div>
 
 <header class="hero wrap">
   <p class="label">Professional Brand Guidelines &amp; Identity System</p>
   <h1>Across Origin Brand Kit</h1>
-  <p style="max-width:52ch;margin-top:10px;">From the Source to Every Nation ? logo, color, typography, elements, applications and usage rules.</p>
+  <p class="hero-sub">From the Source to Every Nation &mdash; official logo lockups, color palette tokens, typography rules, service elements, applications, and assets.</p>
   <div class="toc">
     <a href="#boards">Styleboards</a>
-    <a href="#logo">Logo</a>
+    <a href="#logo">Logo &amp; Lockup</a>
     <a href="#variations">Variations</a>
-    <a href="#color">Color</a>
+    <a href="#color">Color Palette</a>
     <a href="#type">Typography</a>
-    <a href="#elements">Elements</a>
+    <a href="#elements">Service Elements</a>
     <a href="#applications">Applications</a>
-    <a href="#rules">Clear space</a>
+    <a href="#rules">Clear Space</a>
     <a href="#downloads">Downloads</a>
   </div>
 </header>
 
 <main class="wrap">
 
-  <!-- STYLEBOARDS -->
+  <!-- STYLEBOARDS (With Interactive Lightbox) -->
   <section class="block" id="boards">
     <h2>Brand guidelines &amp; styleboards</h2>
-    <p style="margin-bottom:18px;">Official V2.0 guidelines board ? construction, colors, type, usage and applications ? plus identity styleboards.</p>
-    <a href="/assets/brand-guidelines-v2.jpg" target="_blank" style="display:block;margin-bottom:20px;">
-      <img class="board" src="/assets/brand-guidelines-v2.jpg" alt="Across Origin Brand Guidelines V2.0 ? logo construction, variations, color, typography, applications">
-    </a>
+    <p class="sec-desc">Official V2.0 identity boards detailing symbol construction, clear space, Pantone/CMYK formulas, apparel, and environmental applications. Click any board to inspect in full resolution.</p>
+    
+    <div class="board-wrap" onclick="openLightbox('/assets/brand-guidelines-v2.jpg', 'Across Origin Brand Guidelines V2.0 (Full Construction & Specs)')" style="margin-bottom:20px;">
+      <img src="/assets/brand-guidelines-v2.jpg" alt="Across Origin Brand Guidelines V2.0 — construction, colors, type, usage and applications">
+      <div class="board-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+        Click to Inspect High-Res
+      </div>
+    </div>
+
     <div class="grid2">
-      <a href="/assets/brand-styleboard-1.jpg" target="_blank"><img class="board" src="/assets/brand-styleboard-1.jpg" alt="Across Origin Brand Identity Styleboard"></a>
-      <a href="/assets/brand-styleboard-2.jpg" target="_blank"><img class="board" src="/assets/brand-styleboard-2.jpg" alt="Across Origin Brand Identity Board"></a>
+      <div class="board-wrap" onclick="openLightbox('/assets/brand-styleboard-1.jpg', 'Across Origin Brand Identity Styleboard 1')">
+        <img src="/assets/brand-styleboard-1.jpg" alt="Across Origin Brand Identity Styleboard — logo, color, type, applications">
+        <div class="board-badge">Inspect Board 1</div>
+      </div>
+      <div class="board-wrap" onclick="openLightbox('/assets/brand-styleboard-2.jpg', 'Across Origin Brand Identity Styleboard 2')">
+        <img src="/assets/brand-styleboard-2.jpg" alt="Across Origin Brand Identity Board — stationery, apparel, signage">
+        <div class="board-badge">Inspect Board 2</div>
+      </div>
     </div>
   </section>
 
-  <!-- LOGO -->
+  <!-- LOGO SECTION (Interactive Background Switcher) -->
   <section class="block" id="logo">
-    <h2>Brand logo</h2>
-    <p style="margin-bottom:18px;">Primary vertical lockup and emblem mark.</p>
-    <div class="grid2">
-      <div class="card center" style="background:#000;">
-        <img class="logo-img" src="/assets/logo-full-lockup.png" alt="Across Origin full lockup" style="max-width:340px;">
-        <p style="margin-top:14px;color:#aaa;">Primary vertical lockup</p>
+    <h2>Brand logo &amp; lockup</h2>
+    <p class="sec-desc">The primary vertical lockup and emblem mark. Use the background selector below to preview contrast and rendering across brand surfaces.</p>
+    
+    <div class="logo-stage-box">
+      <div class="stage-controls">
+        <div class="stage-theme-picker">
+          <span style="font-family:var(--display);font-size:0.75rem;font-weight:600;color:var(--muted);margin-right:6px;">Preview Surface:</span>
+          <button class="theme-btn theme-light active" onclick="setStageBg('#ffffff', this)" title="White Surface"></button>
+          <button class="theme-btn theme-neutral" onclick="setStageBg('#F3F5FA', this)" title="Light Neutral"></button>
+          <button class="theme-btn theme-indigo" onclick="setStageBg('#14267B', this)" title="Deep Indigo"></button>
+          <button class="theme-btn theme-black" onclick="setStageBg('#111111', this)" title="Charcoal Black"></button>
+          <button class="theme-btn theme-gold" onclick="setStageBg('#F4A22A', this)" title="Marigold Gold"></button>
+        </div>
+        <div style="font-family:var(--mono);font-size:0.75rem;color:var(--muted);" id="stage-bg-label">Background: #ffffff</div>
       </div>
-      <div class="card center">
-        <img class="logo-img" src="/assets/logo-mark.png?v=6" alt="Across Origin mark" style="max-width:220px;">
-        <p style="margin-top:14px;">Symbol / icon only</p>
+
+      <div class="grid2" style="gap:0;">
+        <div class="stage-viewport" id="stage-viewport-lockup" style="background:#ffffff;border-right:1px solid var(--line);">
+          <img id="stage-img-lockup" src="/assets/logo-full-lockup.png" alt="Across Origin full lockup">
+        </div>
+        <div class="stage-viewport" id="stage-viewport-mark" style="background:#ffffff;">
+          <img id="stage-img-mark" src="/assets/logo-mark.png?v=6" alt="Across Origin emblem mark">
+        </div>
+      </div>
+
+      <div class="stage-actions">
+        <span style="font-family:var(--display);font-size:0.78rem;color:var(--muted);">Primary Vertical Lockup &amp; Emblem Mark</span>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-dev" onclick="copySvgCode()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy Mark SVG
+          </button>
+          <a class="btn-dev" href="/assets/logo-mark.png?v=6" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PNG
+          </a>
+        </div>
       </div>
     </div>
-    <div class="card" style="margin-top:16px;">
+
+    <!-- Horizontal lockup card -->
+    <div class="card" style="margin-top:20px;">
       <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
-        <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="">
-        <div>
-          <div style="font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--indigo);">Across <span style="color:var(--gold);">Origin</span></div>
-          <div style="font-family:var(--display);font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--indigo);margin-top:6px;">Venture Private Limited</div>
+        <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="Across Origin Emblem" style="object-fit:contain;">
+        <div style="flex:1;">
+          <div style="font-family:var(--display);font-weight:700;font-size:1.65rem;color:var(--indigo);">Across <span style="color:var(--gold);">Origin</span></div>
+          <div style="font-family:var(--display);font-size:0.64rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--indigo);margin-top:4px;">Venture Private Limited</div>
           <div style="display:flex;align-items:center;gap:10px;margin-top:10px;">
             <i style="display:block;width:36px;height:1px;background:var(--gold);"></i>
-            <span style="font-family:var(--serif);font-style:italic;color:var(--indigo);">From the Source to Every Nation</span>
+            <span style="font-family:var(--serif);font-style:italic;color:var(--indigo);font-size:0.95rem;">From the Source to Every Nation</span>
             <i style="display:block;width:36px;height:1px;background:var(--gold);"></i>
           </div>
-          <p style="margin-top:12px;">Horizontal wordmark pattern for headers and stationery.</p>
+          <p style="margin-top:10px;font-size:0.88rem;">Approved horizontal wordmark configuration for website headers, stationery, email signatures, and partner listings.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VARIATIONS -->
+  <!-- LOGO VARIATIONS -->
   <section class="block" id="variations">
     <h2>Brand logo variations</h2>
-    <p style="margin-bottom:18px;">Use the approved colorway for the background. Prefer full color on light; reverse or mono for constrained print.</p>
+    <p class="sec-desc">Use the approved colorway for each background. Always maintain full contrast. Avoid using the full-color mark on low-contrast colored backgrounds.</p>
+    
     <div class="var-grid">
       <div class="var">
         <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="Full color mark">
-        <div class="cap">Full color</div>
+        <div class="cap">Full color on light</div>
       </div>
       <div class="var ink">
-        <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="" style="filter:brightness(0) invert(1);">
-        <div class="cap">On indigo</div>
+        <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="Mark on indigo" style="filter:brightness(0) invert(1);">
+        <div class="cap">White on indigo</div>
       </div>
       <div class="var dark">
-        <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="">
-        <div class="cap">On black</div>
+        <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="Mark on black">
+        <div class="cap">Full color on dark</div>
       </div>
-      <div class="var" style="background:var(--gold);">
-        <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="" style="filter:brightness(0) invert(1);">
-        <div class="cap" style="color:rgba(0,0,0,0.55);">On gold</div>
+      <div class="var gold">
+        <img src="/assets/logo-mark.png?v=6" width="96" height="96" alt="Mark on gold" style="filter:brightness(0) invert(1);">
+        <div class="cap">Reverse on gold</div>
       </div>
     </div>
-    <div class="grid3" style="margin-top:16px;">
+
+    <div class="grid3" style="margin-top:20px;">
       <div class="card center">
-        <div class="app-ico" style="width:72px;height:72px;border-radius:16px;background:var(--indigo);display:grid;place-items:center;margin:0 auto;">
-          <img src="/assets/logo-mark.png?v=6" width="48" height="48" alt="" style="filter:brightness(0) invert(1);">
+        <div class="app-ico" style="width:72px;height:72px;border-radius:18px;background:var(--indigo);display:grid;place-items:center;margin:0 auto;box-shadow:0 6px 16px rgba(20,38,123,0.25);">
+          <img src="/assets/logo-mark.png?v=6" width="48" height="48" alt="App icon indigo" style="filter:brightness(0) invert(1);">
         </div>
-        <p style="margin-top:12px;">App icon ? indigo tile</p>
+        <p style="margin-top:14px;font-weight:600;color:var(--indigo);">App icon &middot; Indigo tile</p>
+        <p style="font-size:0.8rem;margin-top:2px;">Mobile app, social avatar, favicon</p>
       </div>
+
       <div class="card center">
-        <div class="app-ico" style="width:72px;height:72px;border-radius:16px;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;margin:0 auto;">
-          <img src="/assets/logo-mark.png?v=6" width="48" height="48" alt="">
+        <div class="app-ico" style="width:72px;height:72px;border-radius:18px;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;margin:0 auto;box-shadow:var(--shadow-sm);">
+          <img src="/assets/logo-mark.png?v=6" width="48" height="48" alt="App icon light">
         </div>
-        <p style="margin-top:12px;">App icon ? light tile</p>
+        <p style="margin-top:14px;font-weight:600;color:var(--indigo);">App icon &middot; Light tile</p>
+        <p style="font-size:0.8rem;margin-top:2px;">Light mode apps, web docks</p>
       </div>
+
       <div class="card center">
-        <div class="fav-row" style="display:flex;gap:10px;justify-content:center;align-items:end;">
-          <img class="s16" src="/assets/logo-mark.png?v=6" width="16" height="16" alt=""><img class="s32" src="/assets/logo-mark.png?v=6" width="32" height="32" alt=""><img class="s48" src="/assets/logo-mark.png?v=6" width="48" height="48" alt="">
+        <div class="fav-row" style="display:flex;gap:14px;justify-content:center;align-items:flex-end;min-height:72px;">
+          <img class="s16" src="/assets/logo-mark.png?v=6" width="16" height="16" alt="Favicon 16">
+          <img class="s32" src="/assets/logo-mark.png?v=6" width="32" height="32" alt="Favicon 32">
+          <img class="s48" src="/assets/logo-mark.png?v=6" width="48" height="48" alt="Favicon 48">
         </div>
-        <p style="margin-top:12px;">Favicon 16 ? 32 ? 48</p>
+        <p style="margin-top:14px;font-weight:600;color:var(--indigo);">Favicon 16 &middot; 32 &middot; 48 px</p>
+        <p style="font-size:0.8rem;margin-top:2px;">Crisp symbol rendering at small sizes</p>
       </div>
     </div>
   </section>
 
-  <!-- COLOR -->
+  <!-- COLOR PALETTE (Click-to-Copy & Token Export) -->
   <section class="block" id="color">
     <h2>Brand color palette</h2>
-    <p style="margin-bottom:18px;">Deep Indigo + Marigold Gold lead the system. Light Neutral for surfaces. Charcoal for reading text.</p>
+    <p class="sec-desc">Deep Indigo and Marigold Gold anchor the identity. Click any color card to instantly copy its HEX code to your clipboard.</p>
+    
     <div class="grid4">
-      <div class="sw"><div class="chip" style="background:#14267B"></div><div class="m"><div class="nm">Deep Indigo</div><div class="vl">#14267B ? RGB 20, 38, 123<br>CMYK 100,86,0,4 ? Pantone 281 C</div><div class="meaning">Trust ? Knowledge ? Stability ? Global</div></div></div>
-      <div class="sw"><div class="chip" style="background:#F4A22A"></div><div class="m"><div class="nm">Marigold Gold</div><div class="vl">#F4A22A ? RGB 244, 162, 42<br>CMYK 0,38,91,0 ? Pantone 1375 C</div><div class="meaning">Origin ? Growth ? Opportunity</div></div></div>
-      <div class="sw"><div class="chip" style="background:#F3F5FA;border-bottom:1px solid var(--line)"></div><div class="m"><div class="nm">Light Neutral</div><div class="vl">#F3F5FA ? RGB 243, 245, 250<br>CMYK 4,2,0,0</div><div class="meaning">Clean ? Modern ? Professional</div></div></div>
-      <div class="sw"><div class="chip" style="background:#1F2937"></div><div class="m"><div class="nm">Charcoal</div><div class="vl">#1F2937 ? RGB 31, 41, 55<br>CMYK 78,64,51,56</div><div class="meaning">Text ? Neutral ? Balance</div></div></div>
+      <!-- Deep Indigo -->
+      <div class="sw" onclick="copyColor('#14267B', 'Deep Indigo')">
+        <div class="chip" style="background:#14267B;">
+          <span class="chip-copy-hint">Click to Copy</span>
+        </div>
+        <div class="m">
+          <div class="nm">
+            Deep Indigo
+            <span class="wcag-tag wcag-aaa">AAA 13.8:1</span>
+          </div>
+          <div class="vl">
+            #14267B &middot; RGB 20, 38, 123<br>
+            CMYK 100, 86, 0, 4<br>
+            Pantone 281 C
+          </div>
+          <div class="meaning">Trust &middot; Knowledge &middot; Stability &middot; Global Reach</div>
+        </div>
+      </div>
+
+      <!-- Marigold Gold -->
+      <div class="sw" onclick="copyColor('#F4A22A', 'Marigold Gold')">
+        <div class="chip" style="background:#F4A22A;">
+          <span class="chip-copy-hint">Click to Copy</span>
+        </div>
+        <div class="m">
+          <div class="nm">
+            Marigold Gold
+            <span class="wcag-tag wcag-aa">Accent</span>
+          </div>
+          <div class="vl">
+            #F4A22A &middot; RGB 244, 162, 42<br>
+            CMYK 0, 38, 91, 0<br>
+            Pantone 1375 C
+          </div>
+          <div class="meaning">Origin Point &middot; Growth &middot; Sun &middot; Energy</div>
+        </div>
+      </div>
+
+      <!-- Light Neutral -->
+      <div class="sw" onclick="copyColor('#F3F5FA', 'Light Neutral')">
+        <div class="chip" style="background:#F3F5FA;border-bottom:1px solid var(--line);">
+          <span class="chip-copy-hint" style="background:rgba(0,0,0,0.75);">Click to Copy</span>
+        </div>
+        <div class="m">
+          <div class="nm">
+            Light Neutral
+            <span class="wcag-tag" style="background:#e2e8f0;color:#334155;">Surface</span>
+          </div>
+          <div class="vl">
+            #F3F5FA &middot; RGB 243, 245, 250<br>
+            CMYK 4, 2, 0, 0
+          </div>
+          <div class="meaning">Clean Backgrounds &middot; Card Surfaces &middot; Modern</div>
+        </div>
+      </div>
+
+      <!-- Charcoal -->
+      <div class="sw" onclick="copyColor('#1F2937', 'Charcoal')">
+        <div class="chip" style="background:#1F2937;">
+          <span class="chip-copy-hint">Click to Copy</span>
+        </div>
+        <div class="m">
+          <div class="nm">
+            Charcoal
+            <span class="wcag-tag wcag-aaa">AAA 12.4:1</span>
+          </div>
+          <div class="vl">
+            #1F2937 &middot; RGB 31, 41, 55<br>
+            CMYK 78, 64, 51, 56
+          </div>
+          <div class="meaning">Body Typography &middot; High Legibility &middot; Neutral</div>
+        </div>
+      </div>
     </div>
-    <p style="margin-top:14px;font-size:0.85rem;"><strong style="color:var(--indigo);">Deep Indigo print:</strong> CMYK 100, 86, 0, 4 ? Pantone 281 C ? <strong style="color:var(--indigo);">White:</strong> #FFFFFF</p>
-    <div class="note">Layout ratio guide: 65?75% white/light neutral, 20?30% indigo, up to 5?10% gold. Gold is accent ? not body text.</div>
+
+    <!-- Developer Tokens Export Bar -->
+    <div class="dev-bar">
+      <div class="dev-bar-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <span>Developer Tokens Export</span>
+      </div>
+      <div class="dev-buttons">
+        <button class="btn-dev" onclick="copyCssVars()">Copy CSS Variables</button>
+        <button class="btn-dev" onclick="copyTailwindTokens()">Copy Tailwind Palette</button>
+        <button class="btn-dev" onclick="copyJsonPalette()">Copy JSON</button>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Layout Ratio Rule:</strong> 65&ndash;75% white / light neutral surfaces, 20&ndash;30% deep indigo structural elements, and up to 5&ndash;10% marigold gold highlights. Gold is strictly an accent &mdash; not intended for long body copy.
+    </div>
   </section>
 
-  <!-- TYPE -->
+  <!-- TYPOGRAPHY (With Live Interactive Playground) -->
   <section class="block" id="type">
     <h2>Brand typography</h2>
+    <p class="sec-desc">A refined typographic pairing balancing structural authority with editorial elegance.</p>
+    
     <div class="grid2">
-      <div class="card type-sample">
-        <p class="label">Primary ? Montserrat</p>
-        <div class="big">Across Origin</div>
-        <p class="body">Headings, UI, labels, wordmark companion text. Weights: 700 hero ? 600 subheads ? 500 labels.</p>
-        <p style="margin-top:10px;font-family:var(--display);letter-spacing:0.18em;text-transform:uppercase;font-size:0.72rem;font-weight:600;color:var(--indigo);">Venture Private Limited</p>
+      <div class="card">
+        <p class="label">Primary Display &middot; Montserrat</p>
+        <div style="font-family:var(--display);font-weight:700;font-size:clamp(1.8rem, 3.5vw, 2.5rem);color:var(--indigo);line-height:1.15;margin-top:8px;">
+          Across Origin
+        </div>
+        <p style="margin-top:12px;font-size:0.92rem;">
+          Headlines, UI components, labels, and company lockups. Clean geometric proportions with humanist warmth.
+        </p>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-family:var(--display);font-size:0.75rem;color:var(--indigo);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;">
+          Bold 700 &middot; SemiBold 600 &middot; Medium 500
+        </div>
       </div>
-      <div class="card type-sample">
-        <p class="label">Secondary ? Lora</p>
-        <div class="serif">From the Source to Every Nation</div>
-        <p class="body">Tagline and selected editorial quotations only. Avoid for navigation or long UI labels.</p>
-        <p style="margin-top:14px;">Body / UI: <strong style="color:var(--charcoal);">Inter</strong> Regular 400 / Medium 500 ? 16?18 px.</p>
+
+      <div class="card">
+        <p class="label">Secondary Editorial &middot; Lora</p>
+        <div style="font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem, 2.5vw, 1.7rem);color:var(--indigo);line-height:1.3;margin-top:8px;">
+          From the Source to Every Nation
+        </div>
+        <p style="margin-top:12px;font-size:0.92rem;">
+          Official tagline, editorial quotations, book subtitles, and publication chapter headings.
+        </p>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:0.88rem;color:var(--charcoal);">
+          Body Copy &amp; UI Data: <strong style="color:var(--indigo);font-family:var(--body);">Inter</strong> Regular 400 &amp; Medium 500.
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Type Tester -->
+    <div class="type-playground">
+      <div class="type-controls">
+        <div class="type-btn-group">
+          <button class="type-btn active" onclick="setFontFamily('Montserrat', this)">Montserrat</button>
+          <button class="type-btn" onclick="setFontFamily('Lora', this)">Lora</button>
+          <button class="type-btn" onclick="setFontFamily('Inter', this)">Inter</button>
+        </div>
+
+        <div class="type-btn-group">
+          <button class="type-btn" onclick="setFontWeight('400', this)">400</button>
+          <button class="type-btn" onclick="setFontWeight('500', this)">500</button>
+          <button class="type-btn" onclick="setFontWeight('600', this)">600</button>
+          <button class="type-btn active" onclick="setFontWeight('700', this)">700</button>
+        </div>
+
+        <div class="size-slider-wrap">
+          <span>Size:</span>
+          <input type="range" min="18" max="56" value="32" class="size-slider" id="type-size-slider" oninput="setFontSize(this.value)">
+          <span id="type-size-label">32px</span>
+        </div>
+      </div>
+
+      <div class="type-output" id="type-output" contenteditable="true" spellcheck="false" style="font-family:'Montserrat', sans-serif;font-size:32px;font-weight:700;color:var(--indigo);">
+        From the Source to Every Nation
+      </div>
+      <div style="margin-top:8px;font-size:0.75rem;color:var(--muted);display:flex;justify-content:space-between;">
+        <span>Click the box above to edit custom specimen text</span>
+        <span id="font-spec-badge">Montserrat &middot; Bold 700 &middot; 32px</span>
       </div>
     </div>
   </section>
 
-  <!-- ELEMENTS -->
+  <!-- ELEMENTS (Click-to-Copy SVG Code) -->
   <section class="block" id="elements">
-    <h2>Brand elements</h2>
-    <p style="margin-bottom:18px;">Service icons in Deep Indigo with Marigold accents ? for web, decks and collateral.</p>
+    <h2>Brand elements &amp; service icons</h2>
+    <p class="sec-desc">Precision line icons crafted in Deep Indigo with Marigold Gold accents. Click any icon to copy its pure inline SVG code directly to your clipboard.</p>
+    
     <div class="grid7">
-      <div class="element">
+      <div class="element" onclick="copyIconSvg(this, 'Global Reach')">
         <svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><circle cx="24" cy="24" r="14"/><ellipse cx="24" cy="24" rx="6" ry="14"/><path d="M10 24h28M12 17h24M12 31h24"/></svg>
         <div class="t">Global Reach</div>
+        <div class="el-hint">Click to Copy SVG</div>
       </div>
-      <div class="element">
+
+      <div class="element" onclick="copyIconSvg(this, 'Publishing')">
         <svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M24 12v24M10 14c6 2 10 2 14 0v22c-4 2-8 2-14 0V14zM38 14c-6 2-10 2-14 0v22c4 2 8 2 14 0V14z"/></svg>
         <div class="t">Publishing</div>
+        <div class="el-hint">Click to Copy SVG</div>
       </div>
-      <div class="element">
+
+      <div class="element" onclick="copyIconSvg(this, 'Translation')">
         <svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M8 30c0-8 6-14 16-14s16 6 16 14v2H8v-2z"/><circle cx="18" cy="24" r="1.5" fill="#F4A22A" stroke="none"/><circle cx="24" cy="22" r="1.5" fill="#F4A22A" stroke="none"/><circle cx="30" cy="24" r="1.5" fill="#F4A22A" stroke="none"/><path d="M20 34l-4 6h8l-4-6z"/></svg>
         <div class="t">Translation</div>
+        <div class="el-hint">Click to Copy SVG</div>
       </div>
-      <div class="element">
+
+      <div class="element" onclick="copyIconSvg(this, 'Media Production')">
         <svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><rect x="10" y="12" width="28" height="24" rx="4"/><path d="M20 18l12 6-12 6V18z" fill="#F4A22A" stroke="none"/></svg>
         <div class="t">Media Production</div>
+        <div class="el-hint">Click to Copy SVG</div>
       </div>
-      <div class="element">
+
+      <div class="element" onclick="copyIconSvg(this, 'Digital Marketing')">
         <svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M12 34V22M20 34V16M28 34V24M36 34V12"/><path d="M10 36h28" stroke="#F4A22A"/></svg>
         <div class="t">Digital Marketing</div>
+        <div class="el-hint">Click to Copy SVG</div>
       </div>
-      <div class="element">
+
+      <div class="element" onclick="copyIconSvg(this, 'Training')">
         <svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M10 22l14-8 14 8-14 8-14-8z"/><path d="M16 25v8c4 3 12 3 16 0v-8"/><path d="M38 22v10" stroke="#F4A22A"/></svg>
         <div class="t">Training</div>
+        <div class="el-hint">Click to Copy SVG</div>
       </div>
-      <div class="element">
+
+      <div class="element" onclick="copyIconSvg(this, 'Social Impact')">
         <svg viewBox="0 0 48 48" fill="none" stroke="#14267B" stroke-width="2"><path d="M24 34c-8-6-12-10-12-16a8 8 0 0116 0 8 8 0 0116 0c0 6-4 10-12 16z"/><path d="M18 36c2 2 4 3 6 3s4-1 6-3" stroke="#F4A22A"/></svg>
         <div class="t">Social Impact</div>
+        <div class="el-hint">Click to Copy SVG</div>
+      </div>
+
+      <div class="element" onclick="copyMarkSvgQuick()" style="background:#eef2fb;border-color:var(--indigo);">
+        <svg viewBox="0 0 200 200" style="width:48px;height:48px;"><use href="#ao-mark-symbol"/></svg>
+        <div class="t">Official Mark</div>
+        <div class="el-hint" style="opacity:1;">Click to Copy SVG</div>
       </div>
     </div>
   </section>
 
-  <!-- APPLICATIONS -->
+  <!-- APPLICATIONS (Click to Zoom Lightbox) -->
   <section class="block" id="applications">
     <h2>Brand applications</h2>
-    <p style="margin-bottom:18px;">How the identity lives on stationery, apparel, signage, vehicle and digital surfaces ? from Brand Guidelines V2.0.</p>
-    <a href="/assets/brand-guidelines-v2.jpg" target="_blank" style="display:block;margin-bottom:16px;">
-      <img class="board" src="/assets/brand-guidelines-v2.jpg" alt="Across Origin applications ? cards, letterhead, book, apparel, van, mug">
-    </a>
-    <div class="apps">
-      <img src="/assets/brand-styleboard-1.jpg" alt="Brand applications ? stationery, apparel, merchandise, vehicle">
-      <img src="/assets/brand-styleboard-2.jpg" alt="Brand applications ? cards, office sign, social, book">
+    <p class="sec-desc">How the visual identity extends across physical stationery, apparel, merchandise, vehicle livery, and environmental signage.</p>
+    
+    <div class="board-wrap" onclick="openLightbox('/assets/brand-guidelines-v2.jpg', 'Across Origin Applications — Cards, Letterhead, Book, Apparel, Van, Mug')" style="margin-bottom:18px;">
+      <img src="/assets/brand-guidelines-v2.jpg" alt="Across Origin applications mockup from guidelines V2.0">
+      <div class="board-badge">Inspect High-Res Applications</div>
     </div>
-    <div class="grid3" style="margin-top:16px;">
-      <div class="card"><h3>Stationery</h3><p>Business cards 85?55 mm, A4 letterhead, DL envelopes ? horizontal lockup preferred.</p></div>
-      <div class="card"><h3>Apparel &amp; merch</h3><p>Polo, tee, cap, mug, notebook, book cover ? emblem or mono lockup.</p></div>
-      <div class="card"><h3>Signage &amp; vehicle</h3><p>Office sign, van wrap, social banner ? clear space always.</p></div>
+
+    <div class="apps">
+      <div class="app-img-wrap" onclick="openLightbox('/assets/brand-styleboard-1.jpg', 'Stationery, Apparel & Merchandise Mockups')">
+        <img src="/assets/brand-styleboard-1.jpg" alt="Stationery, apparel, merchandise, vehicle mockups">
+      </div>
+      <div class="app-img-wrap" onclick="openLightbox('/assets/brand-styleboard-2.jpg', 'Cards, Signage, Social & Book Covers')">
+        <img src="/assets/brand-styleboard-2.jpg" alt="Cards, office sign, social, book mockups">
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:20px;">
+      <div class="card">
+        <h3>Stationery</h3>
+        <p>Business cards 85 &times; 55 mm, A4 letterhead, DL envelopes &mdash; horizontal lockup preferred.</p>
+      </div>
+      <div class="card">
+        <h3>Apparel &amp; Merch</h3>
+        <p>Polo shirts, tees, caps, ceramic mugs, notebooks, book jackets &mdash; emblem or monochrome lockup.</p>
+      </div>
+      <div class="card">
+        <h3>Signage &amp; Fleet</h3>
+        <p>Office 3D acrylic signs, commercial van wrap, social media banners &mdash; clear space rules always enforced.</p>
+      </div>
     </div>
   </section>
 
-  <!-- RULES -->
+  <!-- CLEAR SPACE & USAGE RULES -->
   <section class="block" id="rules">
     <h2>Construction, clear space &amp; usage</h2>
-    <div class="rule-row">
+    
+    <div class="grid2">
       <div class="card center">
-        <div style="border:1px dashed var(--gold);padding:28px;display:inline-block;border-radius:10px;">
-          <img src="/assets/logo-mark.png?v=6" width="100" height="100" alt="">
+        <div style="border:1px dashed var(--gold);padding:28px;display:inline-block;border-radius:12px;background:#fafbfd;">
+          <img src="/assets/logo-mark.png?v=6" width="110" height="110" alt="Clear space diagram" style="object-fit:contain;">
         </div>
-        <p style="margin-top:14px;"><strong style="color:var(--indigo);">Clear space X</strong><br>Equal to the height of the sun / origin point on all sides.</p>
+        <p style="margin-top:16px;">
+          <strong style="color:var(--indigo);">Clear Space &lsquo;X&rsquo;</strong><br>
+          Equal to the outer diameter of the golden sun origin point on all four sides. No typography, icons, or trims may enter this boundary.
+        </p>
       </div>
+
       <div class="card">
-        <h3>Construction &amp; size</h3>
-        <p style="margin-top:8px;">Mark is <strong style="color:var(--indigo);">1:1</strong> ? sun ? 22% of height, A-frame ? 78%.<br><br>
-        <strong style="color:var(--indigo);">Print:</strong> 20 mm wide<br>
-        <strong style="color:var(--indigo);">Digital:</strong> 80 px wide<br>
-        <strong style="color:var(--indigo);">Favicon:</strong> symbol-only at 16 / 32 / 48 px</p>
+        <h3>Construction &amp; sizing ratios</h3>
+        <p style="margin-top:8px;">
+          The emblem mark is strictly <strong style="color:var(--indigo);">1:1</strong> aspect ratio. The golden sun origin represents <strong style="color:var(--indigo);">22%</strong> of total height; the A-frame structural pathways occupy <strong style="color:var(--indigo);">78%</strong>.
+        </p>
+        <div style="margin-top:16px;line-height:1.8;font-size:0.92rem;">
+          <div><strong style="color:var(--indigo);">Print minimum:</strong> 20 mm wide</div>
+          <div><strong style="color:var(--indigo);">Digital screen minimum:</strong> 80 px wide</div>
+          <div><strong style="color:var(--indigo);">Favicon / App icon:</strong> symbol-only at 16 / 32 / 48 / 64 / 256 px</div>
+        </div>
       </div>
     </div>
-    <div class="grid2" style="margin-top:16px;">
+
+    <div class="grid2" style="margin-top:20px;">
       <div class="card">
-        <h3>Backgrounds</h3>
-        <p style="margin-top:8px;">Use on white, light neutral, deep indigo (reverse), gold (reverse), charcoal (reverse), or photography with a clear quiet area.</p>
+        <h3 style="color:#166534;display:flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Approved backgrounds
+        </h3>
+        <p style="margin-top:8px;">
+          White, Light Neutral (#F3F5FA), Deep Indigo (reversed to pure white), Charcoal (#1F2937), Marigold Gold (white reverse), or high-key photography with an unobstructed quiet zone.
+        </p>
       </div>
+
       <div class="card">
-        <h3>Incorrect usage</h3>
-        <p style="margin-top:8px;">Do not stretch or distort, change colors outside the palette, add glow/shadow/effects, rearrange mark and type, or place on busy backgrounds.</p>
+        <h3 style="color:#991b1b;display:flex;align-items:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Incorrect usage
+        </h3>
+        <p style="margin-top:8px;">
+          Do not stretch or compress proportions. Do not recolor rays or sun outside brand tokens. Do not add drop shadows, outer glows, or bevels. Do not rotate the A-frame. Do not place over cluttered backgrounds.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- DOWNLOADS -->
+  <!-- DOWNLOADS HUB -->
   <section class="block" id="downloads">
-    <h2>Downloads</h2>
+    <h2>Brand downloads</h2>
+    <p class="sec-desc">Download production-ready vector SVG and high-resolution transparent PNG assets for print, web, presentations, and vendor specifications.</p>
+    
     <div class="grid3">
-      <a class="card" href="/assets/logo-mark.png" download><h3>Logo mark PNG</h3><p>Transparent emblem for web and decks.</p></a>
-      <a class="card" href="/assets/logo-full-lockup.png" download><h3>Full lockup PNG</h3><p>Mark + wordmark + descriptor + tagline.</p></a>
-      <a class="card" href="/assets/brand-guidelines-v2.jpg" download><h3>Guidelines V2.0</h3><p>Full construction, color, type and applications board.</p></a>
+      <div class="dl-card">
+        <div>
+          <h3>Logo mark (PNG)</h3>
+          <p style="margin-top:6px;">High-resolution transparent emblem PNG for digital interfaces, decks, and app tiles.</p>
+        </div>
+        <a class="btn-dl" href="/assets/logo-mark.png?v=6" download>Download PNG</a>
+      </div>
+
+      <div class="dl-card">
+        <div>
+          <h3>Full lockup (PNG)</h3>
+          <p style="margin-top:6px;">Complete primary vertical lockup with emblem, wordmark, descriptor, and tagline.</p>
+        </div>
+        <a class="btn-dl" href="/assets/logo-full-lockup.png" download>Download PNG</a>
+      </div>
+
+      <div class="dl-card">
+        <div>
+          <h3>Guidelines V2.0 (JPG)</h3>
+          <p style="margin-top:6px;">Master specification board with ratios, Pantone codes, apparel, and fleet branding.</p>
+        </div>
+        <a class="btn-dl" href="/assets/brand-guidelines-v2.jpg" download>Download Board</a>
+      </div>
     </div>
-    <div class="grid2" style="margin-top:16px;">
-      <a class="card" href="/assets/brand-styleboard-1.jpg" download><h3>Styleboard 1</h3><p>Identity board for partners and vendors.</p></a>
-      <a class="card" href="/assets/brand-styleboard-2.jpg" download><h3>Styleboard 2</h3><p>Stationery, apparel and environment mockups.</p></a>
+
+    <div class="grid2" style="margin-top:20px;">
+      <div class="dl-card">
+        <div>
+          <h3>Identity Styleboard 1</h3>
+          <p style="margin-top:6px;">Full identity board with stationery, polo shirts, caps, and vehicle wraps.</p>
+        </div>
+        <a class="btn-dl" href="/assets/brand-styleboard-1.jpg" download>Download Styleboard 1</a>
+      </div>
+
+      <div class="dl-card">
+        <div>
+          <h3>Identity Styleboard 2</h3>
+          <p style="margin-top:6px;">Mockup board for business cards, office reception 3D sign, social, and publications.</p>
+        </div>
+        <a class="btn-dl" href="/assets/brand-styleboard-2.jpg" download>Download Styleboard 2</a>
+      </div>
     </div>
   </section>
 
 </main>
 
 <footer class="wrap">
-  Across Origin Venture Private Limited ? Brand Guidelines ? From the Source to Every Nation
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <div>
+      Across Origin Venture Private Limited &middot; Brand Guidelines V2.0 &middot; <em>From the Source to Every Nation</em>
+    </div>
+    <div>
+      <a href="index.html" style="font-weight:600;">Main Site &rarr;</a>
+    </div>
+  </div>
 </footer>
+
+<!-- Lightbox Modal Container -->
+<div class="ao-lightbox" id="ao-lightbox" onclick="closeLightboxOnBackdrop(event)">
+  <div class="lb-header">
+    <div class="lb-title" id="lb-title">Brand Board Inspector</div>
+    <div class="lb-actions">
+      <button class="lb-btn" onclick="toggleZoomImage()">Toggle Zoom</button>
+      <a class="lb-btn" id="lb-dl-btn" href="#" download>Download Full Res</a>
+      <button class="lb-btn" onclick="closeLightbox()">&times; Close (Esc)</button>
+    </div>
+  </div>
+  <div class="lb-content" id="lb-content">
+    <img id="lb-img" src="" alt="Board Fullscreen" onclick="toggleZoomImage()">
+  </div>
+  <div class="lb-footer">
+    Click image or 'Toggle Zoom' to zoom &middot; Press ESC or click outside to close
+  </div>
+</div>
+
+<!-- Toast Notification Element -->
+<div class="ao-toast" id="ao-toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toast-msg">Copied to clipboard!</span>
+</div>
+
+<script>
+  // Toast notification helper
+  let toastTimer = null;
+  function showToast(msg) {
+    const toast = document.getElementById('ao-toast');
+    const msgEl = document.getElementById('toast-msg');
+    msgEl.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2400);
+  }
+
+  // Copy to clipboard helper
+  function copyText(text, successMsg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(successMsg);
+      }).catch(() => fallbackCopy(text, successMsg));
+    } else {
+      fallbackCopy(text, successMsg);
+    }
+  }
+
+  function fallbackCopy(text, successMsg) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showToast(successMsg);
+    } catch(e) {
+      showToast('Unable to copy');
+    }
+    document.body.removeChild(ta);
+  }
+
+  // Color Swatch copy handler
+  function copyColor(hex, name) {
+    copyText(hex, `Copied ${name} (${hex}) to clipboard!`);
+  }
+
+  // Developer Tokens Copy Handlers
+  function copyCssVars() {
+    const cssVars = `:root {
+  --ao-indigo: #14267B;
+  --ao-gold: #F4A22A;
+  --ao-neutral: #F3F5FA;
+  --ao-charcoal: #1F2937;
+  --ao-white: #FFFFFF;
+}`;
+    copyText(cssVars, 'Copied CSS Variables to clipboard!');
+  }
+
+  function copyTailwindTokens() {
+    const tw = `// Tailwind CSS color extensions
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'ao-indigo': '#14267B',
+        'ao-gold': '#F4A22A',
+        'ao-neutral': '#F3F5FA',
+        'ao-charcoal': '#1F2937',
+      }
+    }
+  }
+}`;
+    copyText(tw, 'Copied Tailwind color config to clipboard!');
+  }
+
+  function copyJsonPalette() {
+    const json = JSON.stringify({
+      "brand": "Across Origin",
+      "colors": {
+        "deepIndigo": { "hex": "#14267B", "rgb": "20, 38, 123", "pantone": "281 C" },
+        "marigoldGold": { "hex": "#F4A22A", "rgb": "244, 162, 42", "pantone": "1375 C" },
+        "lightNeutral": { "hex": "#F3F5FA", "rgb": "243, 245, 250" },
+        "charcoal": { "hex": "#1F2937", "rgb": "31, 41, 55" }
+      }
+    }, null, 2);
+    copyText(json, 'Copied JSON palette to clipboard!');
+  }
+
+  // Stage Background Switcher
+  function setStageBg(color, btn) {
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    
+    const vpLockup = document.getElementById('stage-viewport-lockup');
+    const vpMark = document.getElementById('stage-viewport-mark');
+    const label = document.getElementById('stage-bg-label');
+    
+    vpLockup.style.background = color;
+    vpMark.style.background = color;
+    label.textContent = `Background: ${color}`;
+
+    const imgMark = document.getElementById('stage-img-mark');
+    if (color === '#14267B' || color === '#F4A22A') {
+      imgMark.style.filter = 'brightness(0) invert(1)';
+    } else {
+      imgMark.style.filter = 'none';
+    }
+  }
+
+  // Copy pure SVG Vector code
+  function copySvgCode() {
+    const svgCode = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Across Origin mark">
+  <g stroke="#14267B" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100 58 L100 148" stroke-width="7.5"/>
+    <path d="M100 60 L74 152" stroke-width="7"/>
+    <path d="M100 60 L126 152" stroke-width="7"/>
+    <path d="M100 64 L54 158" stroke-width="6.5"/>
+    <path d="M100 64 L146 158" stroke-width="6.5"/>
+  </g>
+  <path d="M100 52 C78 78 52 118 34 178" stroke="#14267B" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 52 C122 78 148 118 166 178" stroke="#14267B" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 118 C72 132 128 132 152 118" stroke="#14267B" stroke-width="5.5" stroke-linecap="round"/>
+  <g transform="translate(100 38)">
+    <g fill="#F4A22A">
+      <polygon points="0,-28 3.2,-16 -3.2,-16"/>
+      <polygon points="0,28 3.2,16 -3.2,16"/>
+      <polygon points="-28,0 -16,3.2 -16,-3.2"/>
+      <polygon points="28,0 16,3.2 16,-3.2"/>
+      <polygon points="-19.8,-19.8 -9.5,-14.2 -14.2,-9.5"/>
+      <polygon points="19.8,-19.8 9.5,-14.2 14.2,-9.5"/>
+      <polygon points="-19.8,19.8 -14.2,9.5 -9.5,14.2"/>
+      <polygon points="19.8,19.8 14.2,9.5 9.5,14.2"/>
+    </g>
+    <circle r="12" fill="#F4A22A"/>
+  </g>
+</svg>`;
+    copyText(svgCode, 'Copied pure SVG code of Across Origin mark!');
+  }
+
+  function copyMarkSvgQuick() {
+    copySvgCode();
+  }
+
+  // Copy Icon SVG
+  function copyIconSvg(card, name) {
+    const svg = card.querySelector('svg');
+    if (svg) {
+      copyText(svg.outerHTML, `Copied ${name} SVG icon!`);
+    }
+  }
+
+  // Typography Playground Handlers
+  let currentFont = 'Montserrat';
+  let currentWeight = '700';
+  let currentSize = '32';
+
+  function updateTypeSpecimen() {
+    const output = document.getElementById('type-output');
+    const badge = document.getElementById('font-spec-badge');
+    const fontStack = currentFont === 'Montserrat' ? "'Montserrat', sans-serif" : currentFont === 'Lora' ? "'Lora', Georgia, serif" : "'Inter', sans-serif";
+    
+    output.style.fontFamily = fontStack;
+    output.style.fontWeight = currentWeight;
+    output.style.fontSize = `${currentSize}px`;
+    
+    badge.textContent = `${currentFont} · Weight ${currentWeight} · ${currentSize}px`;
+  }
+
+  function setFontFamily(font, btn) {
+    currentFont = font;
+    btn.parentElement.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateTypeSpecimen();
+  }
+
+  function setFontWeight(weight, btn) {
+    currentWeight = weight;
+    btn.parentElement.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateTypeSpecimen();
+  }
+
+  function setFontSize(val) {
+    currentSize = val;
+    document.getElementById('type-size-label').textContent = `${val}px`;
+    updateTypeSpecimen();
+  }
+
+  // Lightbox Modal
+  function openLightbox(src, title) {
+    const modal = document.getElementById('ao-lightbox');
+    const img = document.getElementById('lb-img');
+    const titleEl = document.getElementById('lb-title');
+    const dlBtn = document.getElementById('lb-dl-btn');
+
+    img.src = src;
+    img.classList.remove('zoomed');
+    titleEl.textContent = title;
+    dlBtn.href = src;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const modal = document.getElementById('ao-lightbox');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOnBackdrop(e) {
+    if (e.target.id === 'ao-lightbox' || e.target.id === 'lb-content') {
+      closeLightbox();
+    }
+  }
+
+  function toggleZoomImage() {
+    const img = document.getElementById('lb-img');
+    img.classList.toggle('zoomed');
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 </body>
 </html>
